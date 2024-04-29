@@ -1,0 +1,42 @@
+---
+import Button from './Button.astro';
+---
+
+<section
+  class="w-full flex flex-row items-center gap-10  p-0"
+>
+  <div class="w-[480px] h-[384px]">
+    <img
+      class="w-full h-full"
+      src="../../public/assets/presentation.png"
+      alt="presentation image"
+    />
+  </div>
+  <div
+    class="flex flex-col justify-center items-start text-wrap w-[380px] gap-7"
+  >
+    <div class="flex flex-col gap-2">
+      <div>
+        <h1
+          class="text-5xl  bg-gradient-to-b from-custom-pink to-custom-teal inline-block text-transparent bg-clip-text"
+        >
+          Hi, I'm David
+        </h1>
+      </div>
+      <p class="text-base text-white">
+        <b class="text-custom-pink">Full Stack Developer </b> and Computer Engineering
+        student with hands-on experience in live applications. Eager to transition
+        from solo work to collaborative environments, I'm seeking opportunities to
+        expand my skills and contribute to exciting projects. Recently applied <b
+          class="text-custom-teal">SCRUM</b
+        > in a university project, ready to bring agile practices to the workplace.
+        Explore more in my portfolio.
+      </p>
+    </div>
+	<Button btnName="Contact Me" type="secondary" /> 
+  </div>
+  <!--  <div>
+	  <h1 class="text-5xl">Hi, I'm David</h1>
+	</div> -->
+</section>
+

@@ -1,0 +1,14 @@
+---
+interface Props {
+  btnName: string;
+  type: string;
+  size: string;
+}
+const { btnName, type, size } = Astro.props;
+---
+
+<button
+  class={`transition-all hover:text-white py-4 px-5 border-2 font-semibold  rounded-xl ${type === "primary" ? "text-custom-pink border-custom-pink hover:bg-custom-pink" : type === "secondary" ? " hover:bg-custom-teal text-custom-teal border-custom-teal" : ""}  ${size === "full" ? "w-full" : ""}`}
+>
+  {btnName}
+</button>

@@ -1,0 +1,51 @@
+---
+import Logo from "../../public/assets/logo.svg";
+import { Image } from "astro:assets";
+---
+
+<header class="w-[960px] flex justify-between content-center py-5 border-b">
+  <Image src={Logo} format="svg" alt="logo" />
+  <nav class="text-white text-lg flex justify-between gap-5">
+    <a
+      href="#projects"
+      class="transition-all hover:text-custom-pink hover:border-b-2 border-custom-blue"
+      >Projects</a
+    >
+    <a
+      href="#experience"
+      class="transition-all hover:text-custom-pink hover:border-b-2 border-custom-blue"
+      >Experience</a
+    >
+    <a
+      href="#skills"
+      class="transition-all hover:text-custom-pink hover:border-b-2 border-custom-blue"
+      >Skills</a
+    >
+    <a
+      href="#contact"
+      class="transition-all hover:text-custom-pink hover:border-b-2 border-custom-blue"
+      >Contact</a
+    >
+  </nav>
+</header>
+<style>
+  header {
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    z-index: 1000; /* Z-index alto para asegurar que esté por encima del resto del contenido */
+    transition: background-color 0.4s ease-in-out;
+  }
+  header.scrolled {
+      backdrop-filter: blur(60px); /* Aplicar el mismo desenfoque que el encabezado */
+
+  }
+</style>
+
+<script>
+  document.addEventListener("scroll", () => {
+    const header = document.querySelector("header");
+    if (window.scrollY > 0) header.classList.add("scrolled");
+    else header.classList.remove("scrolled");
+  });
+</script>

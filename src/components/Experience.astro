@@ -1,0 +1,25 @@
+---
+import ExperienceIcon from "./Icons/ExperienceIcon.astro";
+import ExperienceCard from "./ExperienceCard.astro";
+
+import experienceData from "../data/experience.json";
+---
+
+<section class="flex flex-col gap-5" id="experience">
+  <header class="flex items-center gap-3 text-custom-pink">
+    <ExperienceIcon />
+
+    <h2 class="text-white text-3xl">Experience</h2>
+  </header>
+  <div class="py-5">
+    {
+      experienceData.map(({ description, position, time }) => (
+        <ExperienceCard
+          description={description}
+          position={position}
+          time={time}
+        />
+      ))
+    }
+  </div>
+</section>

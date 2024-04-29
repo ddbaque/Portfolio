@@ -1,0 +1,27 @@
+---
+interface Props {
+  position: string;
+  time: string;
+  description: string;
+}
+const { description, position, time } = Astro.props;
+---
+
+<div class="px-4">
+  <div class="circle relative border-l-2 border-custom-teal py-4 px-10">
+    <div
+      class="absolute top-0 left-0 transform -translate-x-1/2 -translate-y-1/2 bg-custom-teal w-9 h-9 rounded-full"
+    >
+    </div>
+
+    <div
+      class="px-6 py-6 border border-custom-teal rounded-2xl w-[450px] flex flex-col gap-2"
+    >
+      <h2 class="text-custom-blue font-bold text-lg uppercase">{time}</h2>
+      <h3 class="text-custom-pink font-bold text-lg">{position}</h3>
+      <p class="text-white text-sm">
+        {description}
+      </p>
+    </div>
+  </div>
+</div>

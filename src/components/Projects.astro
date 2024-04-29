@@ -1,0 +1,20 @@
+---
+import ProjectCard from "./PorjectCard.astro";
+import CodeIcon from "./Icons/CodeIcon.astro";
+import projects from "../data/projects.json";
+---
+
+<section class="flex flex-col gap-5" id="projects">
+  <header class="flex items-center gap-3 text-custom-pink">
+    <CodeIcon />
+
+    <h2 class="text-white text-3xl">Projects</h2>
+  </header>
+  <div class="flex justify-between">
+    {
+      projects.map(({ description, image, title }) => (
+        <ProjectCard imageUrl={image} title={title} description={description} />
+      ))
+    }
+  </div>
+</section>

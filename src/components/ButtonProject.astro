@@ -1,0 +1,19 @@
+---
+import GithubIcon from "./Icons/GithubIcon.astro";
+import AncleIcon from "./Icons/AncleIcon.astro";
+
+type IconButtons = "github" | "ancle";
+interface Props {
+  iconName: IconButtons;
+  text: string;
+}
+
+const { iconName, text } = Astro.props;
+---
+
+<button
+  class="flex gap-3 items-center border-[3px] rounded-xl border-custom-blue px-4 py-3 hover:bg-custom-blue text-custom-pink hover:text-white transition-all"
+>
+  {iconName === "github" ? <GithubIcon /> : <AncleIcon />}
+  <span class="text-white font-semibold text-base">{text}</span>
+</button>

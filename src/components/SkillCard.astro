@@ -1,0 +1,47 @@
+---
+import BoxIcon from "./Icons/BoxIcon.astro";
+import CloudIcon from "./Icons/CloudIcon.astro";
+import DbIcon from "./Icons/DbIcon.astro";
+import DrawIcon from "./Icons/DrawIcon.astro";
+import BackIcon from "./Icons/BackIcon.astro";
+import ComputerIcon from "./Icons/ComputerIcon.astro";
+
+type SkillIconType =
+  | "ui"
+  | "database"
+  | "backend"
+  | "frontend"
+  | "cloud"
+  | "other";
+
+interface Props {
+  title: string;
+  description: string;
+  icon: SkillIconType;
+}
+const { title, description, icon } = Astro.props;
+---
+
+<article
+  class="bg-custom-gray border border-custom-violet py-4 px-4 flex w-[176px] h-[136px] flex-col items-start justify-start gap-3 rounded-lg"
+>
+  {
+    icon === "ui" ? (
+      <DrawIcon />
+    ) : icon === "frontend" ? (
+      <ComputerIcon />
+    ) : icon === "backend" ? (
+      <BackIcon />
+    ) : icon === "database" ? (
+      <DbIcon />
+    ) : icon === "cloud" ? (
+      <CloudIcon />
+    ) : icon === "other" ? (
+      <BoxIcon />
+    ) : null
+  }
+  <div class="flex flex-col gap-1">
+    <h1 class="text-white font-bold">{title}</h1>
+    <p class="text-custom-lightViolet text-sm">{description}</p>
+  </div>
+</article>

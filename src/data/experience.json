@@ -1,0 +1,12 @@
+[
+  {
+    "time": "currently",
+    "position": "Backend Developer",
+    "description": "Currently, I'm part of an 8-person team working on a university project. We're developing an application that enables neighbors to exchange services using a proprietary virtual currency. We employ agile SCRUM methodologies for efficient and collaborative development."
+  },
+  {
+    "time": "08/2023 - 10/2023",
+    "position": "FullStack Developer",
+    "description": "In two months, I individually developed an application to manage orders, payments, and tables in restaurants. Currently, it is successfully utilized in two establishments, demonstrating its effectiveness in optimizing daily operations."
+  }
+]

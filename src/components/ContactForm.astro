@@ -1,0 +1,35 @@
+---
+import Button from "./Button.astro";
+---
+
+<form action="" class="text-white flex flex-col gap-14">
+  <div class="flex flex-col gap-4">
+    <div class="flex flex-col gap-2">
+      <label class="font-medium text-base" for="name">Name</label>
+      <input
+        class="w-[500px] px-6 py-4 bg-custom-darkGray text-white rounded-lg placeholder-custom-lightPink focus:outline-none"
+        type="text"
+        id="name"
+        placeholder="Enter your name"
+      />
+    </div>
+    <div class="flex flex-col gap-2">
+      <label class="font-medium text-base" for="email">Email</label>
+      <input
+        class="w-[500px] px-6 py-4 bg-custom-darkGray text-white rounded-lg placeholder-custom-lightPink focus:outline-none"
+        type="email"
+        id="email"
+        placeholder="Enter your email"
+      />
+    </div>
+    <div class="flex flex-col gap-2">
+      <label class="font-medium text-base" for="message">Message</label>
+      <textarea
+        name=""
+        id="message"
+        class="w-[500px] px-6 py-4 bg-custom-darkGray text-white rounded-lg placeholder-custom-lightPink focus:outline-none"
+        placeholder="Enter your message"></textarea>
+    </div>
+  </div>
+  <Button btnName="Contact Me" type="primary" size="full" />
+</form>

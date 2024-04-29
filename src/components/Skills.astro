@@ -1,0 +1,44 @@
+---
+import SkillIcon from "./Icons/SkillIcon.astro";
+import SkillCard from "./SkillCard.astro";
+---
+
+<section class="flex flex-col gap-5" id="skills">
+  <header class="flex items-center gap-3 text-custom-pink">
+    <SkillIcon />
+
+    <h2 class="text-white text-3xl">Skills</h2>
+  </header>
+  <div class="flex flex-col items-center gap-12">
+    <div class="w-[700px] flex justify-between">
+      <SkillCard icon="ui" title="UI/UX" description="Figma, Whimsical" />
+      <SkillCard
+        icon="frontend"
+        title="Frontend"
+        description="HTML, CSS, React, Astro, JavaScript"
+      />
+      <SkillCard
+        icon="backend"
+        title="Backend"
+        description="Node Js, Express, TypeScript"
+      />
+    </div>
+    <div class="w-[700px] flex justify-between">
+      <SkillCard
+        icon="database"
+        title="Database"
+        description="MongoDB, MySQL, PostgreSQL"
+      />
+      <SkillCard
+        icon="cloud"
+        title="Cloud"
+        description="AWS EC2, Digital Ocean"
+      />
+      <SkillCard
+        icon="other"
+        title="Other"
+        description="Docker, Testing, Github Actions"
+      />
+    </div>
+  </div>
+</section>
