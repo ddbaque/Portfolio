@@ -1,5 +1,5 @@
 ---
-import Logo from "../../public/assets/logo.svg";
+import Logo from "../../../public/assets/logo.svg";
 import { Image } from "astro:assets";
 ---
 
@@ -32,12 +32,12 @@ import { Image } from "astro:assets";
   header {
     position: sticky;
     top: 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    z-index: 1000; /* Z-index alto para asegurar que esté por encima del resto del contenido */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
     transition: background-color 0.4s ease-in-out;
   }
   header.scrolled {
-      backdrop-filter: blur(60px); /* Aplicar el mismo desenfoque que el encabezado */
+      backdrop-filter: blur(60px); 
 
   }
 </style>
