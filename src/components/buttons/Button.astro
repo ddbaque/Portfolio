@@ -1,8 +1,11 @@
 ---
+
+type ButtonSize = "full" | "normal";
+
 interface Props {
   btnName: string;
   type: string;
-  size: string;
+  size: ButtonSize;
 }
 const { btnName, type, size } = Astro.props;
 ---

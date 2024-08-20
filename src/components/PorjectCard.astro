@@ -1,5 +1,12 @@
 ---
-import BtnProject from './buttons/ButtonProject.astro';
+import BtnProject from "./buttons/ButtonProject.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  imageUrl: string;
+}
+
 const { title, description, imageUrl } = Astro.props;
 ---
 
@@ -13,8 +20,8 @@ const { title, description, imageUrl } = Astro.props;
       <p class="text-custom-lightPink">{description}</p>
     </div>
     <div class="w-full flex justify-center items-center text-white gap-6">
-      <BtnProject iconName="github" text='Code' />
-      <BtnProject iconName="ancle" text='Preview' />
+      <BtnProject iconName="github" text="Code" size="normal" />
+      <BtnProject iconName="ancle" text="Preview" size="normal" />
     </div>
   </div>
 </article>
