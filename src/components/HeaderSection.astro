@@ -1,0 +1,12 @@
+---
+interface Props {
+  Icon: any;
+  title: string;
+}
+const { Icon, title } = Astro.props;
+---
+
+<header class="flex items-center gap-3 text-custom-pink">
+  <Icon class="w-5 h-5 sm:w-[24px] sm:h-[24px]" />
+  <h2 class="text-white text-base sm:text-[22px] sm:text-2xl font-bold uppercase">{title}</h2>
+</header>

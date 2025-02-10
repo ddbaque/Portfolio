@@ -1,27 +1,68 @@
 ---
-import BtnProject from "./buttons/ButtonProject.astro";
+import Button from "../components/buttons/Button.astro"
+import GithubIcon from "./Icons/GithubIcon.astro";
+import type {ProjectData} from "../types/data.ts"
+import AncleIcon from "./Icons/AncleIcon.astro";
+import FigmaTinyIcon from "./Icons/FigmaTinyIcon.astro"
+import RaspberryPiTinyIcon from "./Icons/RaspberyPiTinyIcon.astro"
+import JavaScriptIcon from "./Icons/JavaScriptIcon.astro"
+import FigmaIcon from "./Icons/FigmaIcon.astro"
+import AstroIcon from "./Icons/AstroIcon.astro";
+import TypeScriptIcon from "./Icons/TypeScriptIcon.astro"
+import DockerIcon from "./Icons/DockerIcon.astro";
+import ReactIcon from "./Icons/ReactIcon.astro";
+import NextIcon from "./Icons/NextIcon.astro"
+import CppIcon from "./Icons/CppIcon.astro"
+import AwsIcon from "./Icons/AwsIcon.astro";
+import ExpressIcon from "./Icons/ExpressIcon.astro"
+import PostgresIcon from "./Icons/PostgresIcon.astro"
 
 interface Props {
-  title: string;
-  description: string;
-  imageUrl: string;
+  data: ProjectData;
 }
 
-const { title, description, imageUrl } = Astro.props;
+const { data } = Astro.props;
+
+const technologiesMap = {
+  "js": JavaScriptIcon,
+  "ts": TypeScriptIcon,
+  "raspberry-pi": RaspberryPiTinyIcon,
+  "figma":FigmaIcon,
+  "astro": AstroIcon,
+  "docker": DockerIcon,
+  "react": ReactIcon,
+  "next-js": NextIcon,
+  "cpp": CppIcon,
+  "aws": AwsIcon,
+  "express-js": ExpressIcon,
+  "postgres": PostgresIcon
+}
+
+
 ---
 
 <article class="w-[300px] flex flex-col gap-5">
   <figure class="w-[300px] h-[300px] overflow-hidden rounded-xl">
-    <img class="object-cover h-full w-full" src={imageUrl} alt={imageUrl} />
+    <img class="object-cover h-full w-full" src={data.imageUrl} alt={data.imageUrl} />
   </figure>
-  <div class="flex flex-col gap-8">
-    <div class="text-white flex flex-col gap-2">
-      <h3 class="text-[16px] font-medium">{title}</h3>
-      <p class="text-custom-lightPink">{description}</p>
+  <div class="flex flex-col gap-7">
+    <div class="flex flex-col gap-3">
+      <div class="text-white flex flex-col gap-2">
+        <h3 class="text-sm sm:text-base font-medium">{data.title}</h3>
+        <p class="text-xs sm:text-sm text-custom-lightPink">{data.description}</p>
+      </div>
+
+      <div class="text-custom-blue flex gap-1">
+        {data.technologies.map(item => {
+          const Component = technologiesMap[item];
+          return Component ? <Component class="h-[28px] w-[28px] sm:h-[32px] sm:w-[32px]" /> : null;
+        })}
+      </div>
     </div>
-    <div class="w-full flex justify-center items-center text-white gap-6">
-      <BtnProject iconName="github" text="Code" size="normal" />
-      <BtnProject iconName="ancle" text="Preview" size="normal" />
+    <div class="w-full flex flex-wrap justify-center items-center text-white gap-6">
+      {data.codeUrl && <Button btnName="Código" type="project"  url={data.codeUrl} size="normal" Icon={GithubIcon} />}
+      {data.deployUrl && <Button btnName="Ver" type="project"  url={data.deployUrl} size="normal" Icon={AncleIcon} />}
+      {data.designUrl && <Button btnName="Diseño" type="project"  url={data.designUrl} size="normal" Icon={FigmaTinyIcon} />}
     </div>
   </div>
 </article>

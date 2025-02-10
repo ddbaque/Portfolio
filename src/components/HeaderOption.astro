@@ -1,0 +1,12 @@
+---
+interface Props {
+  ref: string;
+  title: string;
+}
+const { ref, title  } = Astro.props;
+---
+<a
+    href={`#${ref}`}
+  class="text-xs sm:text-lg transition-all hover:text-custom-pink hover:border-b-2 hover:border-custom-blue py-[2px] px-1 sm:py-1"
+  >{title}</a
+>

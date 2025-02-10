@@ -1,17 +1,24 @@
 [
   {
-    "title": "Restaurant TPV",
-    "description": "Un sistema para gestionar un restaurante. Tratamiento de pedidos a tiempo real, capacidad de generar cuentas, visualizacion de datos y estadisticas de negocio.",
-    "image": "../../../public/assets/projectImage.png"
+    "title": "TakeOrder",
+    "description": "App de gestión para restaurantes que sincroniza en tiempo real comandas, pagos y comunicación entre cocina y camareros, optimizando el servicio. 🚀🍽️",
+    "imageUrl": "../../../public/assets/take-order-mockup.png",
+    "technologies": ["js", "ts", "react", "postgres", "raspberry-pi", "express-js", "aws"]
   },
   {
-    "title": "Restaurant TPV",
-    "description": "Un sistema para gestionar un restaurante. Tratamiento de pedidos a tiempo real, capacidad de generar cuentas, visualizacion de datos y estadisticas de negocio.",
-    "image": "../../../public/assets/projectImage.png"
+    "title": "Neby",
+    "description": "App para comunidades que fomenta la colaboración entre vecinos mediante una recompensa virtual y retos, mejorando la convivencia y el apoyo mutuo. 🏡🤝",
+    "imageUrl": "../../../public/assets/neby-mockup.png",
+    "technologies": ["next-js", "ts",  "postgres", "docker", "cpp", "aws"],
+    "codeUrl": "https://github.com/Neby-Services"
   },
   {
-    "title": "Restaurant TPV",
-    "description": "Un sistema para gestionar un restaurante. Tratamiento de pedidos a tiempo real, capacidad de generar cuentas, visualizacion de datos y estadisticas de negocio.",
-    "image": "../../../public/assets/projectImage.png"
+    "title": "Porfolio",
+    "description": "Portafolio desarrollado con Astro y TypeScript, diseñado previamente en Figma y posteriormente maquetado y programado con estas tecnologías. 💻🎨",
+    "imageUrl": "../../../public/assets/portfolio-mockup.png",
+    "technologies": ["ts", "figma", "astro"],
+    "codeUrl": "https://github.com/ddbaque/Portfolio",
+    "deployUrl": "hhh",
+    "designUrl": "https://www.figma.com/community/file/1469359695744263835"
   }
 ]

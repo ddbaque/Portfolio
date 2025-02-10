@@ -14,9 +14,9 @@ interface Props {
 const { iconName, text, size } = Astro.props;
 ---
 
-<button
+<a
   class=`flex gap-3 items-center border-[3px] rounded-xl border-custom-blue px-4 py-3 hover:bg-custom-blue text-custom-pink hover:text-white transition-all ${size === "full" ? "w-full" : ""}`
 >
   {iconName === "github" ? <GithubIcon /> : <AncleIcon />}
   <span class="text-white font-semibold text-base">{text}</span>
-</button>
+</a>

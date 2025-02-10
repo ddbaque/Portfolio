@@ -1,9 +1,11 @@
 ---
 import Button from "../buttons/Button.astro";
+import MailIcon from "../Icons/MailIcon.astro"
+import LinkedInIcon from "../Icons/LinkedInIcon.astro"
 ---
 
-<section class="w-full flex flex-row items-center gap-10 p-0">
-  <div class="w-[480px] h-[384px]">
+<section class="w-[350px] sm:w-[960px] flex flex-row items-center gap-10 p-0">
+  <div class="hidden sm:block w-[480px] h-[364px]">
     <img
       class="w-full h-full"
       src="../../public/assets/presentation.png"
@@ -11,26 +13,24 @@ import Button from "../buttons/Button.astro";
     />
   </div>
   <div
-    class="flex flex-col justify-center items-start text-wrap w-[380px] gap-7"
+    class="flex flex-col justify-center items-start text-wrap w-[440px] gap-7"
   >
     <div class="flex flex-col gap-2">
       <div>
         <h1
-          class="text-5xl bg-gradient-to-b from-custom-pink to-custom-teal inline-block text-transparent bg-clip-text"
+          class="text-[32px] sm:text-[40px] font-bold bg-gradient-to-b from-custom-pink to-custom-teal inline-block text-transparent bg-clip-text uppercase"
         >
-          Hi, I'm David
+        David Baque Pincay
         </h1>
       </div>
-      <p class="text-base text-white">
-        <b class="text-custom-pink">Full Stack Developer </b> and Computer Engineering
-        student with hands-on experience in live applications. Eager to transition
-        from solo work to collaborative environments, I'm seeking opportunities to
-        expand my skills and contribute to exciting projects. Recently applied <b
-          class="text-custom-teal">SCRUM</b
-        > in a university project, ready to bring agile practices to the workplace.
-        Explore more in my portfolio.
+      <p class="text-xs sm:text-base font-medium text-white">
+        <b class="text-custom-pink">Desarrollador Full Stack</b> y estudiante de Ingeniería en Computación con experiencia práctica (una aplicación en uso). Estoy buscando oportunidades para aportar mis conocimientos y habilidades desde el primer día, para colaborar activamente en proyectos desafiantes. He trabajado en un proyecto donde implementé <b
+           class="text-custom-teal"> SCRUM</b>, y ahora estoy listo para llevar mis prácticas ágiles al entorno profesional. Mi objetivo es contribuir de manera significativa desde el comienzo, utilizando la experiencia y las competencias adquiridas para ser un miembro valioso en cualquier equipo. 
       </p>
     </div>
-    <Button btnName="Contact Me" type="secondary" size="normal" />
+    <div class="flex gap-7 w-full">
+      <Button btnName="Contact Me" type="secondary" size="normal" Icon={MailIcon} url="mailto:baquedavid0@gmail.com"/>
+      <Button btnName="LinkedIn" type="secondary" size="normal" Icon={LinkedInIcon} url="https://www.linkedin.com/in/ddbaque/" />
+    </div>
   </div>
 </section>

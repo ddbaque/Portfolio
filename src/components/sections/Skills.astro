@@ -1,16 +1,14 @@
 ---
 import SkillIcon from "../Icons/SkillIcon.astro";
 import SkillCard from "../SkillCard.astro";
+import HeaderSection from "../HeaderSection.astro";
 ---
 
-<section class="flex flex-col gap-5" id="skills">
-  <header class="flex items-center gap-3 text-custom-pink">
-    <SkillIcon />
+<section class=" w-[350px] sm:w-[960px]  flex flex-col gap-5" id="skills">
 
-    <h2 class="text-white text-3xl">Skills</h2>
-  </header>
-  <div class="flex flex-col items-center gap-12">
-    <div class="w-[700px] flex justify-between">
+  <HeaderSection title="Habilidades" Icon={SkillIcon} />
+
+  <div class="w-full grid grid-cols-2 sm:grid-cols-3 justify-items-center gap-12">
       <SkillCard icon="ui" title="UI/UX" description="Figma, Whimsical" />
       <SkillCard
         icon="frontend"
@@ -22,8 +20,6 @@ import SkillCard from "../SkillCard.astro";
         title="Backend"
         description="Node Js, Express, TypeScript"
       />
-    </div>
-    <div class="w-[700px] flex justify-between">
       <SkillCard
         icon="database"
         title="Database"
@@ -32,13 +28,12 @@ import SkillCard from "../SkillCard.astro";
       <SkillCard
         icon="cloud"
         title="Cloud"
-        description="AWS EC2, Digital Ocean"
+        description="AWS EC2, Raspberry Pi"
       />
       <SkillCard
         icon="other"
         title="Other"
-        description="Docker, Testing, Github Actions"
+        description="Docker, Testing, Linux"
       />
-    </div>
   </div>
 </section>

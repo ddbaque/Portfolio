@@ -1,12 +1,12 @@
 [
   {
-    "time": "currently",
-    "position": "Backend Developer",
-    "description": "Currently, I'm part of an 8-person team working on a university project. We're developing an application that enables neighbors to exchange services using a proprietary virtual currency. We employ agile SCRUM methodologies for efficient and collaborative development."
+    "time": "01/2024 - 06/2024",
+    "position": "Desarrollador Backend",
+    "description": "Durante más de 5 meses, trabajé en un equipo de 8 personas en el desarrollo de una aplicación para el intercambio de servicios entre vecinos. Gestioné el backend y desarrollé la arquitectura, endpoints y base de datos, utilizando C++ y PostgreSQL para manejar múltiples peticiones concurrentes con técnicas como connection pooling."
   },
   {
     "time": "08/2023 - 10/2023",
-    "position": "FullStack Developer",
-    "description": "In two months, I individually developed an application to manage orders, payments, and tables in restaurants. Currently, it is successfully utilized in two establishments, demonstrating its effectiveness in optimizing daily operations."
+    "position": "Desarrollador Full Stack",
+    "description": "En dos meses, desarrollé de manera individual una aplicación para gestionar pedidos, pagos y mesas en restaurantes. Conseguí que dos restaurantes la implementaran, actualmente en uno de ellos lleva operando hasta día de hoy, demostrando su eficacia en la optimización de operaciones diarias."
   }
 ]
