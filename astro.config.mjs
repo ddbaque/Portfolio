@@ -10,4 +10,5 @@ export default defineConfig({
   },
   site: 'https://ddbaque.github.io',
   base: 'my-repo',
+  output: 'static'
 });
