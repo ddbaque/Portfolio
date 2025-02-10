@@ -1,22 +1,22 @@
 ---
-import GithubIcon from "../Icons/GithubIcon.astro";
-import AncleIcon from "../Icons/AncleIcon.astro";
+import GithubIcon from '../Icons/GithubIcon.astro'
+import AncleIcon from '../Icons/AncleIcon.astro'
 
-type ButtonSize = "full" | "normal";
-type IconButtons = "github" | "ancle";
+type ButtonSize = 'full' | 'normal'
+type IconButtons = 'github' | 'ancle'
 
 interface Props {
-  iconName: IconButtons;
-  text: string;
-  size: ButtonSize;
+  iconName: IconButtons
+  text: string
+  size: ButtonSize
 }
 
-const { iconName, text, size } = Astro.props;
+const { iconName, text, size } = Astro.props
 ---
 
 <a
   class=`flex gap-3 items-center border-[3px] rounded-xl border-custom-blue px-4 py-3 hover:bg-custom-blue text-custom-pink hover:text-white transition-all ${size === "full" ? "w-full" : ""}`
 >
-  {iconName === "github" ? <GithubIcon /> : <AncleIcon />}
+  {iconName === 'github' ? <GithubIcon /> : <AncleIcon />}
   <span class="text-white font-semibold text-base">{text}</span>
 </a>

@@ -1,42 +1,42 @@
 ---
-import BoxIcon from "./Icons/BoxIcon.astro";
-import CloudIcon from "./Icons/CloudIcon.astro";
-import DbIcon from "./Icons/DbIcon.astro";
-import DrawIcon from "./Icons/DrawIcon.astro";
-import BackIcon from "./Icons/BackIcon.astro";
-import ComputerIcon from "./Icons/ComputerIcon.astro";
+import BoxIcon from './Icons/BoxIcon.astro'
+import CloudIcon from './Icons/CloudIcon.astro'
+import DbIcon from './Icons/DbIcon.astro'
+import DrawIcon from './Icons/DrawIcon.astro'
+import BackIcon from './Icons/BackIcon.astro'
+import ComputerIcon from './Icons/ComputerIcon.astro'
 
 type SkillIconType =
-  | "ui"
-  | "database"
-  | "backend"
-  | "frontend"
-  | "cloud"
-  | "other";
+  | 'ui'
+  | 'database'
+  | 'backend'
+  | 'frontend'
+  | 'cloud'
+  | 'other'
 
 interface Props {
-  title: string;
-  description: string;
-  icon: SkillIconType;
+  title: string
+  description: string
+  icon: SkillIconType
 }
-const { title, description, icon } = Astro.props;
+const { title, description, icon } = Astro.props
 ---
 
 <article
   class="bg-custom-gray border border-custom-violet py-4 px-4 flex w-[140px] h-[130px] sm:w-[180px] sm:h-[140px] flex-col items-start justify-start gap-3 rounded-lg"
 >
   {
-    icon === "ui" ? (
+    icon === 'ui' ? (
       <DrawIcon />
-    ) : icon === "frontend" ? (
+    ) : icon === 'frontend' ? (
       <ComputerIcon />
-    ) : icon === "backend" ? (
+    ) : icon === 'backend' ? (
       <BackIcon />
-    ) : icon === "database" ? (
+    ) : icon === 'database' ? (
       <DbIcon />
-    ) : icon === "cloud" ? (
+    ) : icon === 'cloud' ? (
       <CloudIcon />
-    ) : icon === "other" ? (
+    ) : icon === 'other' ? (
       <BoxIcon />
     ) : null
   }

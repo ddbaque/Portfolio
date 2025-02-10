@@ -1,7 +1,7 @@
 ---
-import Button from "../buttons/Button.astro";
-import MailIcon from "../Icons/MailIcon.astro"
-import LinkedInIcon from "../Icons/LinkedInIcon.astro"
+import Button from '../buttons/Button.astro'
+import MailIcon from '../Icons/MailIcon.astro'
+import LinkedInIcon from '../Icons/LinkedInIcon.astro'
 ---
 
 <section class="w-[350px] sm:w-[960px] flex flex-row items-center gap-10 p-0">
@@ -20,17 +20,39 @@ import LinkedInIcon from "../Icons/LinkedInIcon.astro"
         <h1
           class="text-[32px] sm:text-[40px] font-bold bg-gradient-to-b from-custom-pink to-custom-teal inline-block text-transparent bg-clip-text uppercase"
         >
-        David Baque Pincay
+          David Baque Pincay
         </h1>
       </div>
       <p class="text-xs sm:text-base font-medium text-white">
-        <b class="text-custom-pink">Desarrollador Full Stack</b> y estudiante de Ingeniería en Computación con experiencia práctica (una aplicación en uso). Estoy buscando oportunidades para aportar mis conocimientos y habilidades desde el primer día, para colaborar activamente en proyectos desafiantes. He trabajado en un proyecto donde implementé <b
-           class="text-custom-teal"> SCRUM</b>, y ahora estoy listo para llevar mis prácticas ágiles al entorno profesional. Mi objetivo es contribuir de manera significativa desde el comienzo, utilizando la experiencia y las competencias adquiridas para ser un miembro valioso en cualquier equipo. 
+        <b class="text-custom-pink">Desarrollador Full Stack</b> y estudiante de
+        Ingeniería en Computación con experiencia práctica (una aplicación en uso).
+        Estoy buscando oportunidades para aportar mis conocimientos y habilidades
+        desde el primer día, para colaborar activamente en proyectos desafiantes.
+        He trabajado en un proyecto donde implementé <b
+          class="text-custom-teal"
+        >
+          SCRUM</b
+        >, y ahora estoy listo para llevar mis prácticas ágiles al entorno
+        profesional. Mi objetivo es contribuir de manera significativa desde el
+        comienzo, utilizando la experiencia y las competencias adquiridas para
+        ser un miembro valioso en cualquier equipo.
       </p>
     </div>
     <div class="flex gap-7 w-full">
-      <Button btnName="Contact Me" type="secondary" size="normal" Icon={MailIcon} url="mailto:baquedavid0@gmail.com"/>
-      <Button btnName="LinkedIn" type="secondary" size="normal" Icon={LinkedInIcon} url="https://www.linkedin.com/in/ddbaque/" />
+      <Button
+        btnName="Contact Me"
+        type="secondary"
+        size="normal"
+        Icon={MailIcon}
+        url="mailto:baquedavid0@gmail.com"
+      />
+      <Button
+        btnName="LinkedIn"
+        type="secondary"
+        size="normal"
+        Icon={LinkedInIcon}
+        url="https://www.linkedin.com/in/ddbaque/"
+      />
     </div>
   </div>
 </section>

@@ -1,39 +1,36 @@
 ---
-import SkillIcon from "../Icons/SkillIcon.astro";
-import SkillCard from "../SkillCard.astro";
-import HeaderSection from "../HeaderSection.astro";
+import SkillIcon from '../Icons/SkillIcon.astro'
+import SkillCard from '../SkillCard.astro'
+import HeaderSection from '../HeaderSection.astro'
 ---
 
-<section class=" w-[350px] sm:w-[960px]  flex flex-col gap-5" id="skills">
-
+<section class="w-[350px] sm:w-[960px] flex flex-col gap-5" id="skills">
   <HeaderSection title="Habilidades" Icon={SkillIcon} />
 
-  <div class="w-full grid grid-cols-2 sm:grid-cols-3 justify-items-center gap-12">
-      <SkillCard icon="ui" title="UI/UX" description="Figma, Whimsical" />
-      <SkillCard
-        icon="frontend"
-        title="Frontend"
-        description="HTML, CSS, React, Astro, JavaScript"
-      />
-      <SkillCard
-        icon="backend"
-        title="Backend"
-        description="Node Js, Express, TypeScript"
-      />
-      <SkillCard
-        icon="database"
-        title="Database"
-        description="MongoDB, MySQL, PostgreSQL"
-      />
-      <SkillCard
-        icon="cloud"
-        title="Cloud"
-        description="AWS EC2, Raspberry Pi"
-      />
-      <SkillCard
-        icon="other"
-        title="Other"
-        description="Docker, Testing, Linux"
-      />
+  <div
+    class="w-full grid grid-cols-2 sm:grid-cols-3 justify-items-center gap-12"
+  >
+    <SkillCard icon="ui" title="UI/UX" description="Figma, Whimsical" />
+    <SkillCard
+      icon="frontend"
+      title="Frontend"
+      description="HTML, CSS, React, Astro, JavaScript"
+    />
+    <SkillCard
+      icon="backend"
+      title="Backend"
+      description="Node Js, Express, TypeScript"
+    />
+    <SkillCard
+      icon="database"
+      title="Database"
+      description="MongoDB, MySQL, PostgreSQL"
+    />
+    <SkillCard icon="cloud" title="Cloud" description="AWS EC2, Raspberry Pi" />
+    <SkillCard
+      icon="other"
+      title="Other"
+      description="Docker, Testing, Linux"
+    />
   </div>
 </section>
