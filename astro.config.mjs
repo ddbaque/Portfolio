@@ -8,6 +8,6 @@ export default defineConfig({
   devToolbar: {
     enabled: false,
   },
-  site: 'https://ddbaque.github.io/Portfolio',
+  site: 'https://ddbaque.github.io',
   base: 'Portfolio',
 })
