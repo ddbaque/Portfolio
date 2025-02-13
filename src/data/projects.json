@@ -11,22 +11,25 @@
       "raspberry-pi",
       "express-js",
       "aws"
-    ]
+    ],
+    "codeUrl": "https://github.com/Neby-Services",
+    "deployUrl": "#"
   },
   {
     "title": "Neby",
     "description": "App para comunidades que fomenta la colaboración entre vecinos mediante una recompensa virtual y retos, mejorando la convivencia y el apoyo mutuo. 🏡🤝",
     "imageUrl": "/Portfolio/assets/neby-mockup.png",
     "technologies": ["next-js", "ts", "postgres", "docker", "cpp", "aws"],
-    "codeUrl": "https://github.com/Neby-Services"
+    "codeUrl": "https://github.com/Neby-Services",
+    "deployUrl": "#"
   },
   {
     "title": "Porfolio",
-    "description": "Portafolio desarrollado con Astro y TypeScript, diseñado previamente en Figma y posteriormente maquetado y programado con estas tecnologías. 💻🎨",
+    "description": "Portfolio desarrollado con Astro y TypeScript, diseñado previamente en Figma y posteriormente maquetado y programado con estas tecnologías. 💻🎨",
     "imageUrl": "/Portfolio/assets/portfolio-mockup.png",
     "technologies": ["ts", "figma", "astro"],
     "codeUrl": "https://github.com/ddbaque/Portfolio",
-    "deployUrl": "hhh",
+    "deployUrl": "https://ddbaque.github.io/Portfolio/",
     "designUrl": "https://www.figma.com/community/file/1469359695744263835"
   }
 ]
