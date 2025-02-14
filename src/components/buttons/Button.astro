@@ -19,7 +19,8 @@ const types = {
 
 <a
   class={`flex gap-2 items-center text-xs sm:text-lg transition-all hover:text-white py-3 px-4 border-2 font-semibold rounded-xl ${type === "primary" ? types.primary : type === "secondary" ? types.secondary : type === "project" ? types.project : ""}  ${size === "full" ? "w-full" : ""}`}
-    href={url}
+  href={url} target="_blank"
+
 >
 {Icon && <Icon class=`w-[16px] h-[16px] sm:w-[24px] sm:h-[24px]`/>}
 <p class=`${type === "project" ? "text-white" : ""}`>

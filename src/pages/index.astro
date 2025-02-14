@@ -6,6 +6,8 @@ import Experience from '../components/sections/Experience.astro'
 import Skills from '../components/sections/Skills.astro'
 import Contact from '../components/sections/Contact.astro'
 import '../../public/global.css'
+import GithubCircleIcon from '../components/Icons/GithubCircleIcon.astro'
+import InstagramIcon from '../components/Icons/InstagramIcon.astro'
 ---
 
 <Layout title="LITWARE">
@@ -16,6 +18,25 @@ import '../../public/global.css'
     <Skills />
     <!--<Contact /> -->
   </main>
+  <footer
+    class="w-[350px] sm:w-[960px] pb-10 pt-7 flex flex-col items-center justify-center gap-2"
+  >
+    <p class="text-custom-lightPink text-xs sm:text-sm">
+      © 2025 David Denis Baque Pincay. Todos los los derechos reservados.
+    </p>
+    <div class="flex gap-4 items-center">
+      <a target="_blank" href="https://github.com/ddbaque">
+        <GithubCircleIcon
+          class="text-custom-lightPink w-[28px] h-[28px] sm:w-[32px] sm:h-[32px]"
+        />
+      </a>
+      <a target="_blank" href="https://www.instagram.com/ddavidbp.28/">
+        <InstagramIcon
+          class="text-custom-lightPink w-[28px] h-[28px] sm:w-[32px] sm:h-[32px]"
+        />
+      </a>
+    </div>
+  </footer>
 </Layout>
 
 <style>
