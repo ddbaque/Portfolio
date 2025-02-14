@@ -2,16 +2,19 @@
 import Button from '../buttons/Button.astro'
 import MailIcon from '../Icons/MailIcon.astro'
 import LinkedInIcon from '../Icons/LinkedInIcon.astro'
+import Badge from '../Badge.astro'
 ---
 
 <section class="w-[350px] sm:w-[960px] flex flex-row items-center gap-10 p-0">
-  <div class="hidden sm:block w-[480px] h-[364px]">
-    <img
-      class="w-full h-full"
-      src="/Portfolio/assets/desk.png"
-      alt="presentation image"
-    />
-  </div>
+  <Badge>
+    <div class="hidden sm:block w-[480px] h-[364px]">
+      <img
+        class="w-full h-full"
+        src="/Portfolio/assets/desk.png"
+        alt="presentation image"
+      />
+    </div>
+  </Badge>
   <div
     class="flex flex-col justify-center items-start text-wrap w-[440px] gap-7"
   >
