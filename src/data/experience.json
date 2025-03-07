@@ -6,7 +6,7 @@
   },
   {
     "time": "01/2024 - 06/2024",
-    "position": "Desarrollador Backend (Univesidad)",
+    "position": "Desarrollador Backend (Universidad)",
     "description": "Durante más de 5 meses, trabajé en un equipo de 8 personas en el desarrollo de una aplicación para el intercambio de servicios entre vecinos. Gestioné el backend y desarrollé la arquitectura, endpoints y base de datos, utilizando C++ y PostgreSQL para manejar múltiples peticiones concurrentes con técnicas como connection pooling."
   },
   {
