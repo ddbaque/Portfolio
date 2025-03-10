@@ -1,17 +1,20 @@
 [
   {
     "time": "Actualmente",
-    "position": "Desarrollador Full Stack (Empresa)",
-    "description": "Actualmente, estoy realizando mis prácticas como Ingeniero Informático, donde me encargo del desarrollo de nuevas funcionalidades y mantenimiento de una aplicación web utilizada por farmacias para gestionar diversos servicios."
+    "position": "Desarrollador Full Stack",
+    "description": "Actualmente, estoy realizando mis prácticas como Ingeniero Informático, donde me encargo del desarrollo de nuevas funcionalidades y mantenimiento de una aplicación web utilizada por farmacias para gestionar diversos servicios.",
+    "company": "FarmaConnect (Empresa)"
   },
   {
     "time": "01/2024 - 06/2024",
-    "position": "Desarrollador Backend (Universidad)",
-    "description": "Durante más de 5 meses, trabajé en un equipo de 8 personas en el desarrollo de una aplicación para el intercambio de servicios entre vecinos. Gestioné el backend y desarrollé la arquitectura, endpoints y base de datos, utilizando C++ y PostgreSQL para manejar múltiples peticiones concurrentes con técnicas como connection pooling."
+    "position": "Desarrollador Backend",
+    "description": "Durante más de 5 meses, trabajé en un equipo de 8 personas en el desarrollo de una aplicación para el intercambio de servicios entre vecinos. Gestioné el backend y desarrollé la arquitectura, endpoints y base de datos, utilizando C++ y PostgreSQL para manejar múltiples peticiones concurrentes con técnicas como connection pooling.",
+    "company": "Neby (Universidad)"
   },
   {
     "time": "08/2023 - 10/2023",
-    "position": "Desarrollador Full Stack (Freelance)",
-    "description": "En dos meses, desarrollé de manera individual una aplicación para gestionar pedidos, pagos y mesas en restaurantes. Conseguí que dos restaurantes la implementaran, actualmente en uno de ellos lleva operando hasta día de hoy, demostrando su eficacia en la optimización de operaciones diarias."
+    "position": "Desarrollador Full Stack",
+    "description": "En dos meses, desarrollé de manera individual una aplicación para gestionar pedidos, pagos y mesas en restaurantes. Conseguí que dos restaurantes la implementaran, actualmente en uno de ellos lleva operando hasta día de hoy, demostrando su eficacia en la optimización de operaciones diarias.",
+    "company": "TakeOrder (Freelance)"
   }
 ]

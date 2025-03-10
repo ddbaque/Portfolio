@@ -5,8 +5,9 @@ interface Props {
   position: string
   time: string
   description: string
+  company: string
 }
-const { description, position, time } = Astro.props
+const { description, position, time, company } = Astro.props
 ---
 
 <div class="w-full px-4">
@@ -17,7 +18,7 @@ const { description, position, time } = Astro.props
     </div>
 
     <div
-      class="w-full sm:w-[450px] px-6 py-6 border border-custom-teal rounded-2xl flex flex-col gap-2"
+      class="w-full sm:w-[450px] px-6 py-6 border border-custom-teal rounded-2xl flex flex-col gap-1"
     >
       <div class="flex items-center gap-3">
         <CalendarIcon
@@ -27,7 +28,10 @@ const { description, position, time } = Astro.props
           {time}
         </h2>
       </div>
-      <h3 class="text-custom-pink font-bold text-base sm:text-lg">
+      <h3 class="text-custom-pink m- font-bold text-base sm:text-lg">
+        {company}
+      </h3>
+      <h3 class="text-custom-lightPink font-semibold text-sm sm:text-lg">
         {position}
       </h3>
       <p class="text-white text-xs sm:text-sm">

@@ -11,8 +11,9 @@ import experienceData from '../../data/experience.json'
 
   <div class="py-5">
     {
-      experienceData.map(({ description, position, time }) => (
+      experienceData.map(({ description, position, time, company }) => (
         <ExperienceCard
+          company={company}
           description={description}
           position={position}
           time={time}
