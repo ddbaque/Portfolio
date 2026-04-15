@@ -34,7 +34,7 @@ export const translations = {
     'experience.current': 'Actualmente',
 
     // Footer
-    'footer.rights': '© 2025 David Denis Baque Pincay',
+    'footer.rights': '© 2025 David Baque',
 
     // Projects
     'project.takeorder.description': 'App de gestión para restaurantes que sincroniza en tiempo real comandas, pagos y comunicación entre cocina y camareros, optimizando el servicio.',
@@ -87,7 +87,7 @@ export const translations = {
 
     'experience.current': 'Currently',
 
-    'footer.rights': '© 2025 David Denis Baque Pincay',
+    'footer.rights': '© 2025 David Baque',
 
     'project.takeorder.description': 'Restaurant management app that synchronizes orders, payments and kitchen-waiter communication in real time, optimizing the service.',
     'project.neby.description': 'Community app that encourages collaboration between neighbors through virtual rewards and challenges, improving coexistence and mutual support.',
@@ -137,7 +137,7 @@ export const translations = {
 
     'experience.current': 'Actualment',
 
-    'footer.rights': '© 2025 David Denis Baque Pincay',
+    'footer.rights': '© 2025 David Baque',
 
     'project.takeorder.description': "App de gestió per a restaurants que sincronitza en temps real comandes, pagaments i comunicació entre cuina i cambrers, optimitzant el servei.",
     'project.neby.description': "App per a comunitats que fomenta la col·laboració entre veïns mitjançant una recompensa virtual i reptes, millorant la convivència i el suport mutu.",
