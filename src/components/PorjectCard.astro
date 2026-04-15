@@ -1,5 +1,4 @@
 ---
-import Button from '../components/buttons/Button.astro'
 import GithubIcon from './Icons/GithubIcon.astro'
 import type { ProjectData } from '../types/data.ts'
 import AncleIcon from './Icons/AncleIcon.astro'
@@ -16,14 +15,17 @@ import CppIcon from './Icons/CppIcon.astro'
 import AwsIcon from './Icons/AwsIcon.astro'
 import ExpressIcon from './Icons/ExpressIcon.astro'
 import PostgresIcon from './Icons/PostgresIcon.astro'
+import type { Lang } from '../i18n/translations'
+import { t } from '../i18n/utils'
 
 interface Props {
   data: ProjectData
+  lang: Lang
 }
 
-const { data } = Astro.props
+const { data, lang } = Astro.props
 
-const technologiesMap = {
+const technologiesMap: Record<string, any> = {
   js: JavaScriptIcon,
   ts: TypeScriptIcon,
   'raspberry-pi': RaspberryPiTinyIcon,
@@ -39,70 +41,59 @@ const technologiesMap = {
 }
 ---
 
-<article
-  class="w-[300px] flex flex-col gap-5 sm:cursor-pointer sm:group-hover:blur-sm sm:hover:!blur-none sm:group-hover:scale-[0.85] sm:hover:!scale-100 duration-300"
->
-  <figure class="w-[300px] h-[300px] overflow-hidden rounded-xl">
+<article class="group w-full sm:w-[300px] flex flex-col rounded-xl bg-glass-1 border border-subtle hover:border-medium hover:bg-glass-2 transition-all duration-300">
+  <figure class="w-full h-[200px] overflow-hidden rounded-t-xl">
     <img
-      class="object-cover h-full w-full"
+      class="object-cover h-full w-full transition-transform duration-500 group-hover:scale-105"
       src={data.imageUrl}
-      alt={data.imageUrl}
+      alt={data.title}
     />
   </figure>
-  <div class="flex flex-col gap-7">
-    <div class="flex flex-col gap-3">
-      <div class="text-white flex flex-col gap-2">
-        <h3 class="text-sm sm:text-base font-medium">{data.title}</h3>
-        <p class="text-xs sm:text-sm text-custom-lightPink">
-          {data.description}
-        </p>
-      </div>
-
-      <div class="text-custom-blue flex gap-1">
-        {
-          data.technologies.map((item) => {
-            const Component = technologiesMap[item]
-            return Component ? (
-              <Component class="h-[28px] w-[28px] sm:h-[32px] sm:w-[32px]" />
-            ) : null
-          })
-        }
-      </div>
+  <div class="flex flex-col gap-4 p-5">
+    <div class="flex flex-col gap-2">
+      <h3 class="text-base font-semibold text-white tracking-tight">{data.title}</h3>
+      <p class="text-xs sm:text-sm text-custom-lightGray leading-relaxed">
+        {data.description}
+      </p>
     </div>
-    <div
-      class="w-full flex flex-wrap justify-center items-center text-white gap-6"
-    >
+
+    <div class="flex gap-1.5 flex-wrap">
+      {
+        data.technologies.map((item) => {
+          const Component = technologiesMap[item]
+          return Component ? (
+            <Component class="h-6 w-6 text-custom-blue" />
+          ) : null
+        })
+      }
+    </div>
+
+    <div class="flex gap-1.5 pt-1 w-full">
       {
         data.codeUrl && (
-          <Button
-            btnName="Código"
-            type="project"
-            url={data.codeUrl}
-            size="normal"
-            Icon={GithubIcon}
-          />
+          <a href={data.codeUrl} target="_blank" rel="noopener noreferrer"
+            class="flex-1 inline-flex items-center justify-center gap-1 py-1.5 text-[11px] font-medium rounded-full bg-glass-2 border border-subtle text-custom-lightGray hover:text-white hover:border-medium transition-all duration-300">
+            <GithubIcon class="w-3.5 h-3.5" />
+            {t(lang, 'project.code')}
+          </a>
         )
       }
       {
         data.deployUrl && (
-          <Button
-            btnName="Ver"
-            type="project"
-            url={data.deployUrl}
-            size="normal"
-            Icon={AncleIcon}
-          />
+          <a href={data.deployUrl} target="_blank" rel="noopener noreferrer"
+            class="flex-1 inline-flex items-center justify-center gap-1 py-1.5 text-[11px] font-medium rounded-full bg-glass-2 border border-subtle text-custom-lightGray hover:text-white hover:border-medium transition-all duration-300">
+            <AncleIcon class="w-3.5 h-3.5" />
+            {t(lang, 'project.view')}
+          </a>
         )
       }
       {
         data.designUrl && (
-          <Button
-            btnName="Diseño"
-            type="project"
-            url={data.designUrl}
-            size="normal"
-            Icon={FigmaTinyIcon}
-          />
+          <a href={data.designUrl} target="_blank" rel="noopener noreferrer"
+            class="flex-1 inline-flex items-center justify-center gap-1 py-1.5 text-[11px] font-medium rounded-full bg-glass-2 border border-subtle text-custom-lightGray hover:text-white hover:border-medium transition-all duration-300">
+            <FigmaTinyIcon class="w-3.5 h-3.5" />
+            {t(lang, 'project.design')}
+          </a>
         )
       }
     </div>

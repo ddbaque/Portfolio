@@ -2,16 +2,42 @@
 import ExperienceIcon from '../Icons/ExperienceIcon.astro'
 import ExperienceCard from '../ExperienceCard.astro'
 import HeaderSection from '../HeaderSection.astro'
+import type { Lang } from '../../i18n/translations'
+import { t } from '../../i18n/utils'
 
-import experienceData from '../../data/experience.json'
+interface Props {
+  lang: Lang
+}
+const { lang } = Astro.props
+
+const experiences = [
+  {
+    time: '02/2025 - ' + t(lang, 'experience.current'),
+    position: t(lang, 'exp.farmaconnect.position'),
+    description: t(lang, 'exp.farmaconnect.description'),
+    company: t(lang, 'exp.farmaconnect.company'),
+  },
+  {
+    time: '01/2024 - 06/2024',
+    position: t(lang, 'exp.neby.position'),
+    description: t(lang, 'exp.neby.description'),
+    company: t(lang, 'exp.neby.company'),
+  },
+  {
+    time: '08/2023 - 10/2023',
+    position: t(lang, 'exp.takeorder.position'),
+    description: t(lang, 'exp.takeorder.description'),
+    company: t(lang, 'exp.takeorder.company'),
+  },
+]
 ---
 
-<section class="w-[350px] sm:w-[960px] flex flex-col gap-5" id="experience">
-  <HeaderSection title="Experiencia" Icon={ExperienceIcon} />
+<section class="w-full max-w-[960px] flex flex-col gap-8 px-5" id="experience">
+  <HeaderSection title={t(lang, 'section.experience')} Icon={ExperienceIcon} />
 
-  <div class="py-5">
+  <div class="max-w-[560px]">
     {
-      experienceData.map(({ description, position, time, company }) => (
+      experiences.map(({ description, position, time, company }) => (
         <ExperienceCard
           company={company}
           description={description}

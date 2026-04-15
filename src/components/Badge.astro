@@ -1,14 +1,10 @@
-<div class="hidden sm:flex sm:items-center">
-  <span
-    class="relative inline-flex overflow-hidden rounded-[12px] p-[2px] w-full h-full"
-  >
-    <span
-      class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#4361ee_0%,#3a0ca3_50%,#4361ee_100%)]"
-    ></span>
-    <div
-      class="inline-flex items-center justify-center w-full h-full text-lg text-green-800 bg-green-100 rounded-[10px] cursor-pointer dark:bg-gray-800 dark:text-white/80 backdrop-blur-3xl whitespace-nowrap"
-    >
-      <slot />
-    </div>
-  </span>
+---
+
+---
+
+<div class="hidden sm:block relative rounded-xl overflow-hidden p-[1px] animate-fade-up">
+  <div class="absolute inset-0 rounded-xl bg-gradient-to-br from-custom-pink/30 via-custom-indigo/20 to-custom-teal/30"></div>
+  <div class="relative rounded-xl overflow-hidden bg-custom-gray">
+    <slot />
+  </div>
 </div>

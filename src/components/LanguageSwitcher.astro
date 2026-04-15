@@ -1,0 +1,157 @@
+---
+import { languages, type Lang } from '../i18n/translations'
+import { getLocalePath } from '../i18n/utils'
+
+interface Props {
+  lang: Lang
+  mode?: 'desktop' | 'mobile'
+}
+const { lang, mode = 'desktop' } = Astro.props
+---
+
+{mode === 'desktop' && (
+  <div class="flex gap-0.5 rounded-full bg-glass-2 border border-subtle p-0.5">
+    {Object.entries(languages).map(([code, label]) => (
+      <a
+        href={getLocalePath(code as Lang)}
+        class:list={[
+          'px-2.5 py-1 text-[11px] font-medium rounded-full transition-all duration-300',
+          code === lang
+            ? 'bg-glass-3 text-white'
+            : 'text-custom-muted hover:text-custom-lightGray',
+        ]}
+      >
+        {label}
+      </a>
+    ))}
+  </div>
+)}
+
+{mode === 'mobile' && (
+  <div class="fixed z-50" id="lang-fab" style="bottom: 40px; right: 32px;">
+    <div id="lang-options" class="flex flex-col gap-1.5 mb-2 items-center pointer-events-none">
+      {Object.entries(languages).filter(([code]) => code !== lang).map(([code, label], i) => (
+        <a
+          href={getLocalePath(code as Lang)}
+          class="lang-option w-10 h-10 flex items-center justify-center rounded-full bg-custom-darkGray border border-subtle text-[11px] font-medium text-custom-lightGray shadow-lg opacity-0 translate-y-3 scale-75"
+          style={`transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) ${i * 60}ms`}
+        >
+          {label}
+        </a>
+      ))}
+    </div>
+    <button
+      id="lang-fab-btn"
+      class="w-11 h-11 flex items-center justify-center rounded-full bg-glass-3 border border-subtle text-xs font-semibold text-white shadow-lg backdrop-blur-md transition-transform duration-300 ease-out select-none cursor-grab active:cursor-grabbing"
+    >
+      {languages[lang]}
+    </button>
+  </div>
+)}
+
+<script is:inline>
+  function initFab() {
+    const fab = document.getElementById('lang-fab')
+    const btn = document.getElementById('lang-fab-btn')
+    const container = document.getElementById('lang-options')
+    const items = container?.querySelectorAll('.lang-option')
+    if (!fab || !btn) return
+
+    let open = false
+    let dragging = false
+    let hasMoved = false
+    let startX = 0, startY = 0, fabX = 0, fabY = 0
+    const PAD = 12
+
+    // Posición inicial desde CSS
+    const rect = fab.getBoundingClientRect()
+    fabX = rect.left
+    fabY = rect.top
+    fab.style.right = 'auto'
+    fab.style.bottom = 'auto'
+    fab.style.left = fabX + 'px'
+    fab.style.top = fabY + 'px'
+
+    function clamp(val, min, max) {
+      return Math.max(min, Math.min(max, val))
+    }
+
+    function moveTo(clientX, clientY) {
+      const fabW = fab.offsetWidth
+      const fabH = fab.offsetHeight
+      let newX = clientX - startX
+      let newY = clientY - startY
+      newX = clamp(newX, PAD, window.innerWidth - fabW - PAD)
+      newY = clamp(newY, PAD, window.innerHeight - fabH - PAD)
+
+      if (Math.abs(newX - fabX) > 3 || Math.abs(newY - fabY) > 3) {
+        hasMoved = true
+      }
+      fabX = newX
+      fabY = newY
+      fab.style.left = fabX + 'px'
+      fab.style.top = fabY + 'px'
+    }
+
+    function onStart(clientX, clientY) {
+      dragging = true
+      hasMoved = false
+      startX = clientX - fabX
+      startY = clientY - fabY
+    }
+
+    function onEnd() {
+      if (!dragging) return
+      dragging = false
+      if (hasMoved) {
+        setTimeout(function() { hasMoved = false }, 50)
+      }
+    }
+
+    // Touch
+    btn.addEventListener('touchstart', function(e) {
+      onStart(e.touches[0].clientX, e.touches[0].clientY)
+    }, { passive: true })
+    document.addEventListener('touchmove', function(e) {
+      if (dragging) moveTo(e.touches[0].clientX, e.touches[0].clientY)
+    }, { passive: true })
+    document.addEventListener('touchend', onEnd)
+
+    // Mouse
+    btn.addEventListener('mousedown', function(e) {
+      e.preventDefault()
+      onStart(e.clientX, e.clientY)
+    })
+    document.addEventListener('mousemove', function(e) {
+      if (dragging) {
+        e.preventDefault()
+        moveTo(e.clientX, e.clientY)
+      }
+    })
+    document.addEventListener('mouseup', onEnd)
+
+    // Click
+    btn.addEventListener('click', function() {
+      if (hasMoved) return
+      open = !open
+      if (open) {
+        container?.classList.remove('pointer-events-none')
+        btn.style.transform = 'rotate(180deg)'
+        items?.forEach(function(el) {
+          el.classList.remove('opacity-0', 'translate-y-3', 'scale-75')
+          el.classList.add('opacity-100', 'translate-y-0', 'scale-100')
+        })
+      } else {
+        container?.classList.add('pointer-events-none')
+        btn.style.transform = 'rotate(0deg)'
+        items?.forEach(function(el) {
+          el.classList.add('opacity-0', 'translate-y-3', 'scale-75')
+          el.classList.remove('opacity-100', 'translate-y-0', 'scale-100')
+        })
+      }
+    })
+  }
+
+  initFab()
+  document.addEventListener('astro:after-swap', initFab)
+</script>

@@ -2,35 +2,24 @@
 import SkillIcon from '../Icons/SkillIcon.astro'
 import SkillCard from '../SkillCard.astro'
 import HeaderSection from '../HeaderSection.astro'
+import type { Lang } from '../../i18n/translations'
+import { t } from '../../i18n/utils'
+
+interface Props {
+  lang: Lang
+}
+const { lang } = Astro.props
 ---
 
-<section class="w-[350px] sm:w-[960px] flex flex-col gap-5" id="skills">
-  <HeaderSection title="Habilidades" Icon={SkillIcon} />
+<section class="w-full max-w-[960px] flex flex-col gap-8 px-5" id="skills">
+  <HeaderSection title={t(lang, 'section.skills')} Icon={SkillIcon} />
 
-  <div
-    class="w-full grid grid-cols-2 sm:grid-cols-3 justify-items-center gap-12"
-  >
-    <SkillCard icon="ui" title="UI/UX" description="Figma, Whimsical" />
-    <SkillCard
-      icon="frontend"
-      title="Frontend"
-      description="HTML, CSS, React, Astro, JavaScript"
-    />
-    <SkillCard
-      icon="backend"
-      title="Backend"
-      description="Node Js, Express, TypeScript"
-    />
-    <SkillCard
-      icon="database"
-      title="Database"
-      description="MongoDB, MySQL, PostgreSQL"
-    />
-    <SkillCard icon="cloud" title="Cloud" description="AWS EC2, Raspberry Pi" />
-    <SkillCard
-      icon="other"
-      title="Other"
-      description="Docker, Testing, Linux"
-    />
+  <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+    <SkillCard icon="ui" title={t(lang, 'skill.ui')} description={t(lang, 'skill.ui.desc')} />
+    <SkillCard icon="frontend" title={t(lang, 'skill.frontend')} description={t(lang, 'skill.frontend.desc')} />
+    <SkillCard icon="backend" title={t(lang, 'skill.backend')} description={t(lang, 'skill.backend.desc')} />
+    <SkillCard icon="database" title={t(lang, 'skill.database')} description={t(lang, 'skill.database.desc')} />
+    <SkillCard icon="cloud" title={t(lang, 'skill.cloud')} description={t(lang, 'skill.cloud.desc')} />
+    <SkillCard icon="other" title={t(lang, 'skill.other')} description={t(lang, 'skill.other.desc')} />
   </div>
 </section>

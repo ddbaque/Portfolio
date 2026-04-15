@@ -3,56 +3,48 @@ import Button from '../buttons/Button.astro'
 import MailIcon from '../Icons/MailIcon.astro'
 import LinkedInIcon from '../Icons/LinkedInIcon.astro'
 import Badge from '../Badge.astro'
+import type { Lang } from '../../i18n/translations'
+import { t } from '../../i18n/utils'
+
+interface Props {
+  lang: Lang
+}
+const { lang } = Astro.props
 ---
 
-<section class="w-[350px] sm:w-[960px] flex flex-row items-center gap-10 p-0">
+<section class="w-full max-w-[960px] flex flex-col sm:flex-row items-center gap-10 sm:gap-16 px-5 pt-12 sm:pt-20 pb-8">
   <Badge>
-    <div class="hidden sm:block w-[480px] h-[364px]">
+    <div class="hidden sm:block w-[400px] h-[340px]">
       <img
-        class="w-full h-full"
+        class="w-full h-full object-cover rounded-xl"
         src="/Portfolio/assets/desk.png"
         alt="presentation image"
       />
     </div>
   </Badge>
-  <div
-    class="flex flex-col justify-center items-start text-wrap w-[440px] gap-7"
-  >
-    <div class="flex flex-col gap-2">
+  <div class="flex flex-col justify-center items-start gap-6 max-w-[480px] animate-fade-up">
+    <div class="flex flex-col gap-4">
       <div>
-        <h1
-          class="text-[32px] sm:text-[40px] font-bold bg-gradient-to-b from-custom-pink to-custom-teal inline-block text-transparent bg-clip-text uppercase"
-        >
+        <p class="text-custom-lightGray text-sm font-medium tracking-wide uppercase mb-2">{t(lang, 'hero.role')}</p>
+        <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-gradient leading-tight">
           David Baque Pincay
         </h1>
       </div>
-      <p class="text-xs sm:text-base font-medium text-white">
-        <b class="text-custom-pink">Desarrollador Full Stack</b> y estudiante de
-        Ingeniería Informática con experiencia práctica (una aplicación en uso).
-        Estoy buscando oportunidades para aportar mis conocimientos y habilidades
-        desde el primer día, para colaborar activamente en proyectos desafiantes.
-        He trabajado en un proyecto donde implementé <b
-          class="text-custom-teal"
-        >
-          SCRUM</b
-        >, y ahora estoy listo para llevar mis prácticas ágiles al entorno
-        profesional. Mi objetivo es contribuir de manera significativa desde el
-        comienzo, utilizando la experiencia y las competencias adquiridas para
-        ser un miembro valioso en cualquier equipo.
+      <p class="text-sm sm:text-base text-custom-lightGray leading-relaxed">
+        {t(lang, 'hero.description')}
+        {' '}<span class="text-custom-teal font-medium">Go</span> y
+        <span class="text-custom-teal font-medium">TypeScript</span>,
+        {t(lang, 'hero.description.end')}
       </p>
     </div>
-    <div class="flex gap-7 w-full">
+    <div class="flex gap-3">
       <Button
-        btnName="Contáctame"
-        type="secondary"
-        size="normal"
+        btnName={t(lang, 'hero.contact')}
         Icon={MailIcon}
         url="mailto:baquedavid0@gmail.com"
       />
       <Button
         btnName="LinkedIn"
-        type="secondary"
-        size="normal"
         Icon={LinkedInIcon}
         url="https://www.linkedin.com/in/ddbaque/"
       />

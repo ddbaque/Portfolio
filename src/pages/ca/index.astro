@@ -1,0 +1,38 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Presentation from '../../components/sections/Presentation.astro'
+import Projects from '../../components/sections/Projects.astro'
+import Experience from '../../components/sections/Experience.astro'
+import Skills from '../../components/sections/Skills.astro'
+import '../../../public/global.css'
+import GithubCircleIcon from '../../components/Icons/GithubCircleIcon.astro'
+import InstagramIcon from '../../components/Icons/InstagramIcon.astro'
+import { t } from '../../i18n/utils'
+import type { Lang } from '../../i18n/translations'
+
+const lang: Lang = 'ca'
+---
+
+<Layout title="David Baque — Full Stack Developer" lang={lang}>
+  <main class="flex flex-col gap-20 sm:gap-24 pb-8">
+    <Presentation lang={lang} />
+    <Projects lang={lang} />
+    <Experience lang={lang} />
+    <Skills lang={lang} />
+  </main>
+  <footer
+    class="w-full max-w-[960px] py-12 flex flex-col items-center gap-4 border-t border-subtle"
+  >
+    <div class="flex gap-4 items-center">
+      <a target="_blank" href="https://github.com/ddbaque" class="text-custom-muted hover:text-white transition-colors duration-300">
+        <GithubCircleIcon class="w-5 h-5" />
+      </a>
+      <a target="_blank" href="https://www.instagram.com/ddavidbp.28/" class="text-custom-muted hover:text-white transition-colors duration-300">
+        <InstagramIcon class="w-5 h-5" />
+      </a>
+    </div>
+    <p class="text-custom-muted text-xs text-center">
+      {t(lang, 'footer.rights')}
+    </p>
+  </footer>
+</Layout>

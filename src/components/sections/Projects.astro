@@ -1,18 +1,47 @@
 ---
 import ProjectCard from '../PorjectCard.astro'
 import CodeIcon from '../Icons/CodeIcon.astro'
-import projectsData from '../../data/projects.json'
 import HeaderSection from '../HeaderSection.astro'
-import type { ProjectData } from '../../types/data.ts'
+import type { Lang } from '../../i18n/translations'
+import { t } from '../../i18n/utils'
 
-const projects: ProjectData[] = projectsData
+interface Props {
+  lang: Lang
+}
+const { lang } = Astro.props
+
+const projects = [
+  {
+    title: 'TakeOrder',
+    description: t(lang, 'project.takeorder.description'),
+    imageUrl: '/Portfolio/assets/take-order-mockup.png',
+    technologies: ['js', 'ts', 'react', 'postgres', 'raspberry-pi', 'express-js', 'aws'],
+    codeUrl: 'https://github.com/Neby-Services',
+    deployUrl: '#',
+  },
+  {
+    title: 'Neby',
+    description: t(lang, 'project.neby.description'),
+    imageUrl: '/Portfolio/assets/neby-mockup.png',
+    technologies: ['next-js', 'ts', 'postgres', 'docker', 'cpp', 'aws'],
+    codeUrl: 'https://github.com/Neby-Services',
+    deployUrl: '#',
+  },
+  {
+    title: 'Portfolio',
+    description: t(lang, 'project.portfolio.description'),
+    imageUrl: '/Portfolio/assets/portfolio-mockup.png',
+    technologies: ['ts', 'figma', 'astro'],
+    codeUrl: 'https://github.com/ddbaque/Portfolio',
+    deployUrl: 'https://ddbaque.github.io/Portfolio/',
+    designUrl: 'https://www.figma.com/community/file/1469359695744263835',
+  },
+]
 ---
 
-<section class="flex flex-col gap-5 w-[350px] sm:w-[960px]" id="projects">
-  <HeaderSection Icon={CodeIcon} title="Proyectos" />
-  <div
-    class="flex flex-col sm:flex-row items-center sm:items-start gap-8 sm:justify-between group"
-  >
-    {projects.map((project: ProjectData) => <ProjectCard data={project} />)}
+<section class="w-full max-w-[960px] flex flex-col gap-8 px-5" id="projects">
+  <HeaderSection Icon={CodeIcon} title={t(lang, 'section.projects')} />
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+    {projects.map((project) => <ProjectCard data={project} lang={lang} />)}
   </div>
 </section>

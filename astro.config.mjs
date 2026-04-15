@@ -10,4 +10,11 @@ export default defineConfig({
   },
   site: 'https://ddbaque.github.io',
   base: 'Portfolio',
+  i18n: {
+    defaultLocale: 'es',
+    locales: ['es', 'en', 'ca'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
 })

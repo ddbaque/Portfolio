@@ -20,28 +20,25 @@ interface Props {
   icon: SkillIconType
 }
 const { title, description, icon } = Astro.props
+
+const iconMap = {
+  ui: DrawIcon,
+  frontend: ComputerIcon,
+  backend: BackIcon,
+  database: DbIcon,
+  cloud: CloudIcon,
+  other: BoxIcon,
+}
+
+const IconComponent = iconMap[icon]
 ---
 
 <article
-  class="bg-custom-gray border border-custom-violet py-4 px-4 flex w-[140px] h-[130px] sm:w-[180px] sm:h-[140px] flex-col items-start justify-start gap-3 rounded-lg"
+  class="rounded-xl bg-glass-1 border border-subtle p-5 flex flex-col gap-3 hover:bg-glass-2 hover:border-medium transition-all duration-300"
 >
-  {
-    icon === 'ui' ? (
-      <DrawIcon />
-    ) : icon === 'frontend' ? (
-      <ComputerIcon />
-    ) : icon === 'backend' ? (
-      <BackIcon />
-    ) : icon === 'database' ? (
-      <DbIcon />
-    ) : icon === 'cloud' ? (
-      <CloudIcon />
-    ) : icon === 'other' ? (
-      <BoxIcon />
-    ) : null
-  }
+  {IconComponent && <IconComponent class="w-6 h-6 text-custom-pink" />}
   <div class="flex flex-col gap-1">
-    <h1 class="text-white font-bold text-sm sm:text-base">{title}</h1>
-    <p class="text-custom-lightViolet text-xs sm:text-sm">{description}</p>
+    <h3 class="text-sm font-semibold text-white">{title}</h3>
+    <p class="text-xs text-custom-lightGray">{description}</p>
   </div>
 </article>
