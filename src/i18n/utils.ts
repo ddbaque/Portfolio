@@ -11,6 +11,6 @@ export function t(lang: Lang, key: keyof (typeof translations)[typeof defaultLan
 }
 
 export function getLocalePath(lang: Lang, path: string = ''): string {
-  if (lang === defaultLang) return `/Portfolio/${path}`
-  return `/Portfolio/${lang}/${path}`
+  if (lang === defaultLang) return `/${path}`
+  return `/${lang}/${path}`
 }

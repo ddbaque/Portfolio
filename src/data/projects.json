@@ -2,7 +2,7 @@
   {
     "title": "TakeOrder",
     "description": "App de gestión para restaurantes que sincroniza en tiempo real comandas, pagos y comunicación entre cocina y camareros, optimizando el servicio. 🚀🍽️",
-    "imageUrl": "/Portfolio/assets/take-order-mockup.png",
+    "imageUrl": "/assets/take-order-mockup.png",
     "technologies": [
       "js",
       "ts",
@@ -18,7 +18,7 @@
   {
     "title": "Neby",
     "description": "App para comunidades que fomenta la colaboración entre vecinos mediante una recompensa virtual y retos, mejorando la convivencia y el apoyo mutuo. 🏡🤝",
-    "imageUrl": "/Portfolio/assets/neby-mockup.png",
+    "imageUrl": "/assets/neby-mockup.png",
     "technologies": ["next-js", "ts", "postgres", "docker", "cpp", "aws"],
     "codeUrl": "https://github.com/Neby-Services",
     "deployUrl": "#"
@@ -26,10 +26,10 @@
   {
     "title": "Porfolio",
     "description": "Portfolio desarrollado con Astro y TypeScript, diseñado previamente en Figma y posteriormente maquetado y programado con estas tecnologías. 💻🎨",
-    "imageUrl": "/Portfolio/assets/portfolio-mockup.png",
+    "imageUrl": "/assets/portfolio-mockup.png",
     "technologies": ["ts", "figma", "astro"],
     "codeUrl": "https://github.com/ddbaque/Portfolio",
-    "deployUrl": "https://ddbaque.github.io/Portfolio/",
+    "deployUrl": "https://ddbaque.dev",
     "designUrl": "https://www.figma.com/community/file/1469359695744263835"
   }
 ]
