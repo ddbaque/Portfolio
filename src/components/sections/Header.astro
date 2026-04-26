@@ -25,15 +25,11 @@ const { lang } = Astro.props
       <HeaderOption ref="experience" title={t(lang, 'nav.experience')} />
       <HeaderOption ref="skills" title={t(lang, 'nav.skills')} />
     </nav>
-    <div class="hidden sm:block">
-      <LanguageSwitcher lang={lang} mode="desktop" />
+    <div>
+      <LanguageSwitcher lang={lang} />
     </div>
   </div>
 </header>
-
-<div class="sm:hidden">
-  <LanguageSwitcher lang={lang} mode="mobile" />
-</div>
 
 <style>
   header {
