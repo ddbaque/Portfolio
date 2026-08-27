@@ -8,4 +8,12 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
 	site: 'https://example.com',
 	integrations: [mdx(), sitemap()],
+	i18n: {
+		locales: ['es', 'en', 'ca'],
+		defaultLocale: 'es',
+		routing: {
+			prefixDefaultLocale: true,
+			redirectToDefaultLocale: true,
+		},
+	},
 });

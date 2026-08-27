@@ -1,36 +1,83 @@
 ---
+import { localeDefinitions, locales } from '../i18n/config';
+import { getLocaleFromUrl, getPortfolioPath, getSpanishBlogPath, useTranslations } from '../i18n/utils';
+
+const locale = getLocaleFromUrl(Astro.url);
+const t = useTranslations(locale);
 const pathname = Astro.url.pathname;
-const isBlog = pathname.startsWith('/blog');
+const isBlog = pathname.startsWith('/es/blog');
 const isPortfolio = !isBlog;
+
+const localeLinks = locales.map((targetLocale) => ({
+	locale: targetLocale,
+	href: isBlog && targetLocale === 'es' ? pathname : getPortfolioPath(targetLocale),
+	label: localeDefinitions[targetLocale].label,
+}));
 ---
 
 <header class="site-header">
 	<div class="header-inner">
-		<a class="brand" href="/" aria-label="Ir al portfolio">
+		<a class="brand" href={getPortfolioPath(locale)} aria-label={t.a11y.goToPortfolio}>
 			<span aria-hidden="true">~/</span>ddbaque
 		</a>
 
-		<nav class="desktop-navigation" aria-label="Navegación principal">
-			<a href="/#experiencia">experiencia</a>
-			<a href="/#proyectos">proyectos</a>
-			<a href="/#habilidades">habilidades</a>
-			<a href="/blog" class:list={{ active: isBlog }} aria-current={isBlog ? 'page' : undefined}>blog</a>
+		<nav class="desktop-navigation" aria-label={t.a11y.mainNavigation}>
+			<a href={getPortfolioPath(locale, 'experiencia')}>{t.nav.experience}</a>
+			<a href={getPortfolioPath(locale, 'proyectos')}>{t.nav.projects}</a>
+			<a href={getPortfolioPath(locale, 'habilidades')}>{t.nav.skills}</a>
+			<a
+				href={getSpanishBlogPath()}
+				class:list={{ active: isBlog }}
+				aria-current={isBlog ? 'page' : undefined}
+				hreflang="es"
+				lang={locale === 'es' ? undefined : 'es'}
+				title={locale === 'es' ? undefined : t.a11y.blogInSpanish}
+			>
+				{t.nav.blog}
+			</a>
 		</nav>
 
-		<div class="languages" aria-label="Idioma actual: español">
-			<span class="active" lang="es">ES</span>
-			<span class="separator" aria-hidden="true">·</span>
-			<span lang="en">EN</span>
-			<span class="separator" aria-hidden="true">·</span>
-			<span lang="ca">CA</span>
-		</div>
+		<nav class="languages" aria-label={t.a11y.languageSelector}>
+			{
+				localeLinks.map((item, index) => (
+					<>
+						{index > 0 && (
+							<span class="separator" aria-hidden="true">
+								·
+							</span>
+						)}
+						<a
+							href={item.href}
+							class:list={{ active: item.locale === locale }}
+							aria-current={item.locale === locale ? 'page' : undefined}
+							hreflang={item.locale}
+							lang={item.locale}
+							aria-label={`${t.a11y.changeLanguage} ${item.label}`}
+						>
+							{item.label}
+						</a>
+					</>
+				))
+			}
+		</nav>
 
-		<nav class="mobile-navigation" aria-label="Navegación principal">
-			<a href="/" class:list={{ active: isPortfolio }} aria-current={isPortfolio ? 'page' : undefined}>
-				portfolio
+		<nav class="mobile-navigation" aria-label={t.a11y.mainNavigation}>
+			<a
+				href={getPortfolioPath(locale)}
+				class:list={{ active: isPortfolio }}
+				aria-current={isPortfolio ? 'page' : undefined}
+			>
+				{t.nav.portfolio}
 			</a>
-			<a href="/blog" class:list={{ active: isBlog }} aria-current={isBlog ? 'page' : undefined}>
-				blog
+			<a
+				href={getSpanishBlogPath()}
+				class:list={{ active: isBlog }}
+				aria-current={isBlog ? 'page' : undefined}
+				hreflang="es"
+				lang={locale === 'es' ? undefined : 'es'}
+				title={locale === 'es' ? undefined : t.a11y.blogInSpanish}
+			>
+				{t.nav.blog}
 			</a>
 		</nav>
 	</div>
@@ -105,13 +152,18 @@ const isPortfolio = !isBlog;
 		align-items: center;
 		gap: var(--s-14);
 		margin-left: auto;
-		color: var(--fg-faint);
 		font-size: var(--text-meta);
 		font-weight: var(--weight-medium);
 		letter-spacing: var(--tracking-meta);
 	}
 
-	.languages .active {
+	.languages a {
+		color: var(--fg-faint);
+	}
+
+	.languages a:hover,
+	.languages a:focus-visible,
+	.languages a.active {
 		color: var(--fg);
 	}
 
@@ -134,13 +186,23 @@ const isPortfolio = !isBlog;
 			padding-inline: var(--s-16);
 		}
 
-		.desktop-navigation,
-		.languages {
+		.desktop-navigation {
 			display: none;
 		}
 
 		.mobile-navigation {
 			display: flex;
+			gap: var(--s-14);
+		}
+
+		.languages {
+			gap: var(--s-8);
+			margin-left: var(--s-14);
+			font-size: var(--text-label);
+		}
+
+		.languages .separator {
+			display: none;
 		}
 	}
 </style>

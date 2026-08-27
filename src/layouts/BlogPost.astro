@@ -5,15 +5,16 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
+import { ui } from '../i18n/ui';
 
 type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="es">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead title={title} description={description} locale="es" image={heroImage} showRss />
 		<style>
 			main {
 				width: calc(100% - 2em);
@@ -65,11 +66,11 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				<div class="prose">
 					<div class="title">
 						<div class="date">
-							<FormattedDate date={pubDate} />
+							<FormattedDate date={pubDate} locale="es" />
 							{
 								updatedDate && (
 									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
+										{ui.es.blog.lastUpdated} <FormattedDate date={updatedDate} locale="es" />
 									</div>
 								)
 							}
