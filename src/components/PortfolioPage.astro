@@ -1,7 +1,12 @@
 ---
 import BaseHead from './BaseHead.astro';
+import ExperienceList from './ExperienceList.astro';
 import Header from './Header.astro';
 import Hero from './Hero.astro';
+import PortfolioSection from './PortfolioSection.astro';
+import ProjectList from './ProjectList.astro';
+import SkillsTerminal from './SkillsTerminal.astro';
+import { portfolioContent } from '../data/portfolio';
 import { localeDefinitions, locales, type Locale } from '../i18n/config';
 import { getPortfolioPath, useTranslations } from '../i18n/utils';
 
@@ -11,6 +16,7 @@ interface Props {
 
 const { locale } = Astro.props;
 const t = useTranslations(locale);
+const content = portfolioContent[locale];
 const alternates = locales.map((alternateLocale) => ({
 	locale: alternateLocale,
 	href: getPortfolioPath(alternateLocale),
@@ -32,6 +38,15 @@ const alternates = locales.map((alternateLocale) => ({
 		<Header />
 		<main>
 			<Hero {locale} />
+			<PortfolioSection id="experiencia" title={t.sections.experience}>
+				<ExperienceList items={content.experience} />
+			</PortfolioSection>
+			<PortfolioSection id="proyectos" title={t.sections.projects}>
+				<ProjectList items={content.projects} />
+			</PortfolioSection>
+			<PortfolioSection id="habilidades" title={t.sections.skills}>
+				<SkillsTerminal items={content.skills} />
+			</PortfolioSection>
 		</main>
 	</body>
 </html>

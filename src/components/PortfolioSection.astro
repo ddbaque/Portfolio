@@ -1,0 +1,34 @@
+---
+interface Props {
+	id: string;
+	title: string;
+}
+
+const { id, title } = Astro.props;
+---
+
+<section class="portfolio-section" {id} aria-labelledby={`${id}-title`}>
+	<h2 id={`${id}-title`}>{title}</h2>
+	<slot />
+</section>
+
+<style>
+	.portfolio-section {
+		padding-top: var(--s-56);
+		scroll-margin-top: calc(var(--h-header) + var(--s-22));
+	}
+
+	h2 {
+		margin: 0 0 var(--s-26);
+		font-size: var(--text-section);
+		font-weight: var(--weight-semibold);
+		letter-spacing: var(--tracking-section);
+		line-height: var(--leading-section);
+	}
+
+	@media (max-width: 600px) {
+		.portfolio-section {
+			padding-top: var(--s-48);
+		}
+	}
+</style>

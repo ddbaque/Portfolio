@@ -17,6 +17,11 @@ interface Translations {
 		portfolio: string;
 		blog: string;
 	};
+	sections: {
+		experience: string;
+		projects: string;
+		skills: string;
+	};
 	a11y: {
 		mainNavigation: string;
 		goToPortfolio: string;
@@ -57,6 +62,11 @@ export const ui: Record<Locale, Translations> = {
 			skills: 'habilidades',
 			portfolio: 'portfolio',
 			blog: 'blog',
+		},
+		sections: {
+			experience: 'Experiencia',
+			projects: 'Proyectos',
+			skills: 'Habilidades',
 		},
 		a11y: {
 			mainNavigation: 'Navegación principal',
@@ -109,6 +119,11 @@ export const ui: Record<Locale, Translations> = {
 			portfolio: 'portfolio',
 			blog: 'blog',
 		},
+		sections: {
+			experience: 'Experience',
+			projects: 'Projects',
+			skills: 'Skills',
+		},
 		a11y: {
 			mainNavigation: 'Main navigation',
 			goToPortfolio: 'Go to portfolio',
@@ -157,6 +172,11 @@ export const ui: Record<Locale, Translations> = {
 			skills: 'habilitats',
 			portfolio: 'portfolio',
 			blog: 'blog',
+		},
+		sections: {
+			experience: 'Experiència',
+			projects: 'Projectes',
+			skills: 'Habilitats',
 		},
 		a11y: {
 			mainNavigation: 'Navegació principal',

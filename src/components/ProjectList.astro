@@ -1,0 +1,138 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import nebyImage from '../assets/neby-mockup.png';
+import portfolioImage from '../assets/portfolio-mockup.png';
+import takeOrderImage from '../assets/take-order-mockup.png';
+import type { ProjectId, ProjectItem } from '../types/portfolio';
+
+interface Props {
+	items: ProjectItem[];
+}
+
+const { items } = Astro.props;
+const images = {
+	'take-order': takeOrderImage,
+	neby: nebyImage,
+	portfolio: portfolioImage,
+} satisfies Record<ProjectId, ImageMetadata>;
+---
+
+<div class="project-list">
+	{
+		items.map((item) => (
+			<article>
+				<figure>
+					<Image
+						src={images[item.id]}
+						alt={item.imageAlt}
+						widths={[210, 420]}
+						sizes="(max-width: 700px) min(100vw - 32px, 420px), 210px"
+					/>
+				</figure>
+				<div class="project-content">
+					<header>
+						<h3>{item.name}</h3>
+						<p>{item.context}</p>
+					</header>
+					<p class="description">{item.description}</p>
+					<ul aria-label="Tecnologías">
+						{item.tags.map((tag) => <li>{tag}</li>)}
+					</ul>
+				</div>
+			</article>
+		))
+	}
+</div>
+
+<style>
+	article {
+		display: grid;
+		grid-template-columns: 210px minmax(0, 1fr);
+		align-items: start;
+		gap: var(--s-32);
+		padding: var(--s-26) 0;
+		border-top: 1px solid var(--line);
+	}
+
+	figure {
+		margin: 0;
+	}
+
+	figure :global(img) {
+		display: block;
+		width: 100%;
+	}
+
+	.project-content {
+		min-width: 0;
+	}
+
+	header {
+		display: flex;
+		align-items: baseline;
+		flex-wrap: wrap;
+		gap: var(--s-12);
+		margin-bottom: var(--s-10);
+	}
+
+	h3,
+	header p,
+	.description {
+		margin: 0;
+	}
+
+	h3 {
+		font-size: var(--text-card-title);
+		font-weight: var(--weight-medium);
+		letter-spacing: var(--tracking-card-title);
+		line-height: var(--leading-card-title);
+	}
+
+	header p {
+		color: var(--fg-faint);
+		font-family: var(--font-mono);
+		font-size: var(--text-label);
+		letter-spacing: 0.08em;
+		line-height: var(--leading-ui);
+	}
+
+	.description {
+		max-width: var(--measure-body-sm);
+		margin-bottom: var(--s-16);
+		color: var(--fg-muted);
+		font-size: var(--text-body);
+		line-height: var(--leading-dek);
+		text-wrap: pretty;
+	}
+
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--s-8);
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	li {
+		padding: var(--s-6) var(--s-10);
+		border: 1px solid var(--line-strong);
+		color: var(--accent);
+		font-family: var(--font-mono);
+		font-size: var(--text-label);
+		letter-spacing: 0.06em;
+		line-height: var(--leading-ui);
+	}
+
+	@media (max-width: 700px) {
+		article {
+			grid-template-columns: minmax(0, 1fr);
+			gap: var(--s-18);
+		}
+
+		figure {
+			width: min(100%, 420px);
+		}
+	}
+</style>
