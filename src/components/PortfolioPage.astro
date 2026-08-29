@@ -1,6 +1,7 @@
 ---
 import BaseHead from './BaseHead.astro';
 import ExperienceList from './ExperienceList.astro';
+import Footer from './Footer.astro';
 import Header from './Header.astro';
 import Hero from './Hero.astro';
 import PortfolioSection from './PortfolioSection.astro';
@@ -48,6 +49,7 @@ const alternates = locales.map((alternateLocale) => ({
 				<SkillsTerminal items={content.skills} />
 			</PortfolioSection>
 		</main>
+		<Footer />
 	</body>
 </html>
 

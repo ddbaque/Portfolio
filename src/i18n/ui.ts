@@ -42,10 +42,9 @@ interface Translations {
 		linkedin: string;
 	};
 	footer: {
-		copyright: string;
-		mastodon: string;
-		twitter: string;
-		github: string;
+		statusLabel: string;
+		navigationLabel: string;
+		email: string;
 	};
 }
 
@@ -100,10 +99,9 @@ export const ui: Record<Locale, Translations> = {
 			linkedin: 'linkedin',
 		},
 		footer: {
-			copyright: 'David Baque. Todos los derechos reservados.',
-			mastodon: 'Seguir en Mastodon',
-			twitter: 'Seguir en Twitter',
-			github: 'Visitar el perfil de GitHub',
+			statusLabel: 'Estado del sitio: normal',
+			navigationLabel: 'Enlaces de contacto',
+			email: 'correo',
 		},
 	},
 	en: {
@@ -154,10 +152,9 @@ export const ui: Record<Locale, Translations> = {
 			linkedin: 'linkedin',
 		},
 		footer: {
-			copyright: 'David Baque. All rights reserved.',
-			mastodon: 'Follow on Mastodon',
-			twitter: 'Follow on Twitter',
-			github: 'Visit the GitHub profile',
+			statusLabel: 'Site status: normal',
+			navigationLabel: 'Contact links',
+			email: 'email',
 		},
 	},
 	ca: {
@@ -208,10 +205,9 @@ export const ui: Record<Locale, Translations> = {
 			linkedin: 'linkedin',
 		},
 		footer: {
-			copyright: 'David Baque. Tots els drets reservats.',
-			mastodon: 'Seguir a Mastodon',
-			twitter: 'Seguir a Twitter',
-			github: 'Visitar el perfil de GitHub',
+			statusLabel: 'Estat del lloc: normal',
+			navigationLabel: 'Enllaços de contacte',
+			email: 'correu',
 		},
 	},
 };
