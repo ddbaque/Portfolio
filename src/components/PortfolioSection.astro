@@ -9,7 +9,9 @@ const { id, title } = Astro.props;
 
 <section class="portfolio-section" {id} aria-labelledby={`${id}-title`}>
 	<h2 id={`${id}-title`}>{title}</h2>
-	<slot />
+	<div class="section-content">
+		<slot />
+	</div>
 </section>
 
 <style>
@@ -24,6 +26,11 @@ const { id, title } = Astro.props;
 		font-weight: var(--weight-semibold);
 		letter-spacing: var(--tracking-section);
 		line-height: var(--leading-section);
+	}
+
+	.section-content {
+		padding-top: var(--s-26);
+		border-top: 1px solid var(--line);
 	}
 
 	@media (max-width: 600px) {
