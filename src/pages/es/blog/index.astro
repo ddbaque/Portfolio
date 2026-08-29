@@ -2,6 +2,7 @@
 import BaseHead from '../../../components/BaseHead.astro';
 import Footer from '../../../components/Footer.astro';
 import Header from '../../../components/Header.astro';
+import Terminal from '../../../components/Terminal.astro';
 import { ui } from '../../../i18n/ui';
 ---
 
@@ -20,17 +21,15 @@ import { ui } from '../../../i18n/ui';
 					idempotencia, Postgres y las decisiones que solo te encuentras cuando toca escalar. Vuelve pronto.
 				</p>
 
-				<div class="terminal" aria-label="Estado del blog">
-					<div class="terminal-titlebar" aria-hidden="true">
-						<span class="terminal-dots"><i></i><i></i><i></i></span>
-						<span>fish — ddbaque.dev</span>
-					</div>
-					<div class="terminal-body">
-						<div><span class="prompt">$</span> ls ~/posts</div>
-						<div class="output">ls: ~/posts: No existe el archivo o el directorio</div>
-						<div class="command"><span class="prompt">$</span> git log --oneline -1</div>
-						<div class="output">4d28ab6 blog: primer borrador en marcha</div>
-					</div>
+				<div class="terminal-wrapper">
+					<Terminal title="fish — ddbaque.dev" ariaLabel="Estado del blog">
+						<div class="blog-terminal-content">
+							<div><span class="prompt">$</span> ls ~/posts</div>
+							<div class="output">ls: ~/posts: No existe el archivo o el directorio</div>
+							<div class="command"><span class="prompt">$</span> git log --oneline -1</div>
+							<div class="output">4d28ab6 blog: primer borrador en marcha</div>
+						</div>
+					</Terminal>
 				</div>
 
 				<nav class="actions" aria-label="Enlaces del blog">
@@ -88,42 +87,16 @@ import { ui } from '../../../i18n/ui';
 		line-height: 1.75;
 	}
 
-	.terminal {
+	.terminal-wrapper {
 		margin-top: var(--s-32);
-		border: 1px solid var(--line-strong);
-		background: var(--bg-elev);
+	}
+
+	.blog-terminal-content {
+		padding: var(--s-16);
+		color: var(--fg);
 		font-family: var(--font-mono);
 		font-size: var(--text-code);
 		line-height: var(--leading-code);
-	}
-
-	.terminal-titlebar {
-		display: flex;
-		align-items: center;
-		gap: var(--s-14);
-		min-height: 30px;
-		padding-inline: var(--s-14);
-		border-bottom: 1px solid var(--line);
-		color: var(--fg-faint);
-		font-size: var(--text-label);
-		letter-spacing: var(--tracking-meta);
-	}
-
-	.terminal-dots {
-		display: flex;
-		gap: var(--s-6);
-	}
-
-	.terminal-dots i {
-		width: 8px;
-		height: 8px;
-		background: var(--fg-ghost);
-		border-radius: 50%;
-	}
-
-	.terminal-body {
-		padding: var(--s-16);
-		color: var(--fg);
 	}
 
 	.prompt {

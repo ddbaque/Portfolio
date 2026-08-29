@@ -1,5 +1,6 @@
 ---
 import type { SkillGroup } from '../types/portfolio';
+import Terminal from './Terminal.astro';
 
 interface Props {
 	items: SkillGroup[];
@@ -25,11 +26,8 @@ const debian = `       _,met$$$$$gg.
               \`"""`;
 ---
 
-<div class="terminal">
-	<div class="terminal-bar" aria-hidden="true">
-		<span></span><span></span><span></span>
-	</div>
-	<div class="terminal-content">
+<Terminal ariaLabel="Perfil técnico y tecnologías">
+	<div class="skills-content">
 		<div class="ascii" aria-hidden="true">
 			<pre>{debian}</pre>
 		</div>
@@ -51,31 +49,10 @@ const debian = `       _,met$$$$$gg.
 			</div>
 		</div>
 	</div>
-</div>
+</Terminal>
 
 <style>
-	.terminal {
-		border: 1px solid var(--line);
-		background: var(--bg-code);
-	}
-
-	.terminal-bar {
-		display: flex;
-		align-items: center;
-		gap: 7px;
-		padding: 9px var(--s-12);
-		border-bottom: 1px solid var(--line);
-		background: var(--bg-elev);
-	}
-
-	.terminal-bar span {
-		width: var(--s-8);
-		height: var(--s-8);
-		border-radius: 50%;
-		background: var(--rule);
-	}
-
-	.terminal-content {
+	.skills-content {
 		display: grid;
 		grid-template-columns: 250px minmax(0, 1fr);
 	}
@@ -159,7 +136,7 @@ const debian = `       _,met$$$$$gg.
 	.palette span:nth-child(6) { background: var(--fg); }
 
 	@media (max-width: 700px) {
-		.terminal-content {
+		.skills-content {
 			grid-template-columns: minmax(0, 1fr);
 		}
 

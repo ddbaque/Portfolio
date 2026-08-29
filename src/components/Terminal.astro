@@ -1,0 +1,55 @@
+---
+interface Props {
+	title?: string;
+	ariaLabel?: string;
+}
+
+const { title, ariaLabel } = Astro.props;
+---
+
+<div class="terminal" role={ariaLabel ? 'region' : undefined} aria-label={ariaLabel}>
+	<div class="terminal-bar" aria-hidden="true">
+		<span class="terminal-dots"><i></i><i></i><i></i></span>
+		{title && <span class="terminal-title">{title}</span>}
+	</div>
+	<div class="terminal-content">
+		<slot />
+	</div>
+</div>
+
+<style>
+	.terminal {
+		border: 1px solid var(--line);
+		background: var(--bg-code);
+		font-family: var(--font-mono);
+	}
+
+	.terminal-bar {
+		display: flex;
+		align-items: center;
+		gap: var(--s-14);
+		min-height: 30px;
+		padding-inline: var(--s-12);
+		border-bottom: 1px solid var(--line);
+		background: var(--bg-elev);
+	}
+
+	.terminal-dots {
+		display: flex;
+		gap: 7px;
+	}
+
+	.terminal-dots i {
+		width: var(--s-8);
+		height: var(--s-8);
+		border-radius: 50%;
+		background: var(--rule);
+	}
+
+	.terminal-title {
+		color: var(--fg-faint);
+		font-size: var(--text-label);
+		letter-spacing: var(--tracking-meta);
+		line-height: var(--leading-ui);
+	}
+</style>
