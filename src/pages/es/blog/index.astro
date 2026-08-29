@@ -1,114 +1,201 @@
 ---
-import { Image } from 'astro:assets';
-import { getCollection } from 'astro:content';
 import BaseHead from '../../../components/BaseHead.astro';
 import Footer from '../../../components/Footer.astro';
-import FormattedDate from '../../../components/FormattedDate.astro';
 import Header from '../../../components/Header.astro';
 import { ui } from '../../../i18n/ui';
-
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
 ---
 
 <!doctype html>
 <html lang="es">
 	<head>
 		<BaseHead title={ui.es.blog.title} description={ui.es.blog.description} locale="es" showRss />
-		<style>
-			main {
-				width: 960px;
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: var(--fg);
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: var(--fg-faint);
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: var(--accent);
-			}
-			ul a:hover img {
-				box-shadow: var(--shadow);
-			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/es/blog/${post.id}/`}>
-									{post.data.heroImage && (
-										<Image width={720} height={360} src={post.data.heroImage} alt="" />
-									)}
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} locale="es" />
-									</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
+			<section class="blog-placeholder" aria-labelledby="blog-title">
+				<h1 id="blog-title">El blog aún no está<br />aquí<span class="cursor" aria-hidden="true"></span></h1>
+				<p class="lede">
+					Estoy escribiendo sobre lo que me encuentro construyendo backends en producción: colas,
+					idempotencia, Postgres y las decisiones que solo se ven cuando algo falla a las tres de la mañana.
+					Vuelve pronto.
+				</p>
+
+				<div class="terminal" aria-label="Estado del blog">
+					<div class="terminal-titlebar" aria-hidden="true">
+						<span class="terminal-dots"><i></i><i></i><i></i></span>
+						<span>fish — ddbaque.dev</span>
+					</div>
+					<div class="terminal-body">
+						<div><span class="prompt">$</span> ls ~/posts</div>
+						<div class="output">ls: ~/posts: No existe el archivo o el directorio</div>
+						<div class="command"><span class="prompt">$</span> git log --oneline -1</div>
+						<div class="output">4d28ab6 blog: primer borrador en marcha</div>
+					</div>
+				</div>
+
+				<nav class="actions" aria-label="Enlaces del blog">
+					<a href="/">← volver al inicio</a>
+					<a class="primary" href="https://github.com/ddbaque" target="_blank" rel="noopener noreferrer">
+						mientras tanto, github
+					</a>
+				</nav>
 			</section>
 		</main>
-		<Footer />
+		<Footer statusPath="~/blog" detail="3 borradores en marcha" />
 	</body>
 </html>
+
+<style>
+	:global(body) {
+		display: flex;
+		min-height: 100vh;
+		flex-direction: column;
+	}
+
+	main {
+		display: flex;
+		flex: 1;
+		align-items: flex-start;
+		width: var(--w-site);
+		padding-block: 118px 72px;
+	}
+
+	.blog-placeholder {
+		width: min(620px, 100%);
+	}
+
+	h1 {
+		margin: 0;
+		font-size: var(--text-display);
+		font-weight: var(--weight-semibold);
+		letter-spacing: var(--tracking-display);
+		line-height: 1.08;
+	}
+
+	h1 .cursor {
+		width: 0.5em;
+		height: 0.92em;
+		margin-left: 0.12em;
+	}
+
+	.lede {
+		max-width: 61ch;
+		margin: var(--s-26) 0 0;
+		color: var(--fg-soft);
+		font-size: var(--text-dek);
+		line-height: 1.75;
+	}
+
+	.terminal {
+		margin-top: var(--s-32);
+		border: 1px solid var(--line-strong);
+		background: var(--bg-elev);
+		font-family: var(--font-mono);
+		font-size: var(--text-code);
+		line-height: var(--leading-code);
+	}
+
+	.terminal-titlebar {
+		display: flex;
+		align-items: center;
+		gap: var(--s-14);
+		min-height: 30px;
+		padding-inline: var(--s-14);
+		border-bottom: 1px solid var(--line);
+		color: var(--fg-faint);
+		font-size: var(--text-label);
+		letter-spacing: var(--tracking-meta);
+	}
+
+	.terminal-dots {
+		display: flex;
+		gap: var(--s-6);
+	}
+
+	.terminal-dots i {
+		width: 8px;
+		height: 8px;
+		background: var(--fg-ghost);
+		border-radius: 50%;
+	}
+
+	.terminal-body {
+		padding: var(--s-16);
+		color: var(--fg);
+	}
+
+	.prompt {
+		color: var(--accent);
+	}
+
+	.output {
+		color: var(--fg-dim);
+	}
+
+	.command {
+		margin-top: var(--s-22);
+	}
+
+	.actions {
+		display: flex;
+		gap: var(--s-12);
+		margin-top: var(--s-32);
+		font-family: var(--font-mono);
+		font-size: var(--text-meta);
+		letter-spacing: var(--tracking-meta);
+	}
+
+	.actions a {
+		display: inline-flex;
+		align-items: center;
+		min-height: 36px;
+		padding-inline: var(--s-16);
+		border: 1px solid var(--line-strong);
+		color: var(--fg-prose);
+	}
+
+	.actions a:hover,
+	.actions a:focus-visible {
+		border-color: var(--fg-faint);
+		color: var(--fg);
+	}
+
+	.actions .primary {
+		border-color: var(--accent);
+		color: var(--accent);
+	}
+
+	.actions .primary:hover,
+	.actions .primary:focus-visible {
+		background: var(--accent);
+		color: var(--bg);
+	}
+
+	:global(footer) {
+		margin-top: 0;
+	}
+
+	@media (max-width: 720px) {
+		main {
+			padding-block: var(--s-72) var(--s-48);
+		}
+
+		h1 {
+			font-size: 34px;
+		}
+
+		.lede {
+			font-size: var(--text-body);
+		}
+
+		.actions {
+			align-items: stretch;
+			flex-direction: column;
+		}
+
+		.actions a {
+			justify-content: center;
+		}
+	}
+</style>

@@ -22,9 +22,10 @@ const localeLinks = locales.map((targetLocale) => ({
 		</a>
 
 		<nav class="desktop-navigation" aria-label={t.a11y.mainNavigation}>
+			{isBlog && <a href={getPortfolioPath(locale)}>inicio</a>}
 			<a href={getPortfolioPath(locale, 'experiencia')}>{t.nav.experience}</a>
 			<a href={getPortfolioPath(locale, 'proyectos')}>{t.nav.projects}</a>
-			<a href={getPortfolioPath(locale, 'habilidades')}>{t.nav.skills}</a>
+			{!isBlog && <a href={getPortfolioPath(locale, 'habilidades')}>{t.nav.skills}</a>}
 			<a
 				href={getSpanishBlogPath()}
 				class:list={{ active: isBlog }}
@@ -37,7 +38,7 @@ const localeLinks = locales.map((targetLocale) => ({
 			</a>
 		</nav>
 
-		<nav class="languages" aria-label={t.a11y.languageSelector}>
+		<nav class:list={{ languages: true, 'blog-languages': isBlog }} aria-label={t.a11y.languageSelector}>
 			{
 				localeLinks.map((item, index) => (
 					<>
@@ -169,6 +170,10 @@ const localeLinks = locales.map((targetLocale) => ({
 
 	.languages .separator {
 		color: var(--rule);
+	}
+
+	.blog-languages {
+		display: none;
 	}
 
 	.mobile-navigation {
