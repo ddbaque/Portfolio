@@ -6,14 +6,14 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://example.com',
+	site: 'https://ddbaque.dev',
 	integrations: [mdx(), sitemap()],
 	i18n: {
 		locales: ['es', 'en', 'ca'],
 		defaultLocale: 'es',
 		routing: {
 			prefixDefaultLocale: true,
-			redirectToDefaultLocale: true,
+			redirectToDefaultLocale: false,
 		},
 	},
 });

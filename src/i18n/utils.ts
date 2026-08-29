@@ -11,7 +11,7 @@ export function useTranslations(locale: Locale) {
 }
 
 export function getPortfolioPath(locale: Locale, section?: string): string {
-	const basePath = `/${locale}/`;
+	const basePath = locale === defaultLocale ? '/' : `/${locale}/`;
 	return section ? `${basePath}#${section}` : basePath;
 }
 
