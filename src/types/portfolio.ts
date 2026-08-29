@@ -7,12 +7,25 @@ export interface ExperienceItem {
 
 export type ProjectId = 'take-order' | 'neby' | 'portfolio';
 
+export type Technology =
+	| 'typescript'
+	| 'react'
+	| 'express'
+	| 'postgres'
+	| 'raspberry-pi'
+	| 'aws'
+	| 'next.js'
+	| 'c++'
+	| 'docker'
+	| 'astro'
+	| 'figma';
+
 export interface ProjectItem {
 	id: ProjectId;
 	name: string;
 	context: string;
 	description: string;
-	tags: string[];
+	tags: Technology[];
 	imageAlt: string;
 }
 

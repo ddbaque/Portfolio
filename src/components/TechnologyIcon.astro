@@ -1,0 +1,53 @@
+---
+import AstroIcon from './icons/technologies/AstroIcon.astro';
+import AwsIcon from './icons/technologies/AwsIcon.astro';
+import CppIcon from './icons/technologies/CppIcon.astro';
+import DockerIcon from './icons/technologies/DockerIcon.astro';
+import ExpressIcon from './icons/technologies/ExpressIcon.astro';
+import FigmaIcon from './icons/technologies/FigmaIcon.astro';
+import NextIcon from './icons/technologies/NextIcon.astro';
+import PostgresIcon from './icons/technologies/PostgresIcon.astro';
+import RaspberryPiIcon from './icons/technologies/RaspberryPiIcon.astro';
+import ReactIcon from './icons/technologies/ReactIcon.astro';
+import TypeScriptIcon from './icons/technologies/TypeScriptIcon.astro';
+import type { Technology } from '../types/portfolio';
+
+interface Props {
+	name: Technology;
+}
+
+const { name } = Astro.props;
+const icons = {
+	typescript: TypeScriptIcon,
+	react: ReactIcon,
+	express: ExpressIcon,
+	postgres: PostgresIcon,
+	'raspberry-pi': RaspberryPiIcon,
+	aws: AwsIcon,
+	'next.js': NextIcon,
+	'c++': CppIcon,
+	docker: DockerIcon,
+	astro: AstroIcon,
+	figma: FigmaIcon,
+};
+const Icon = icons[name];
+---
+
+<span class="technology-icon" aria-hidden="true">
+	<Icon />
+</span>
+
+<style>
+	.technology-icon {
+		display: inline-flex;
+		width: 26px;
+		height: 26px;
+		color: var(--accent-dim);
+	}
+
+	.technology-icon :global(svg) {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+</style>
