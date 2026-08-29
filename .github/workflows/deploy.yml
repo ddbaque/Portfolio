@@ -26,6 +26,7 @@ jobs:
         with:
           node-version: 24
           package-manager: pnpm@11.24.0
+          build-cmd: rm -rf node_modules/.astro && pnpm run build
 
   deploy:
     needs: build
