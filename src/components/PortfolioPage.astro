@@ -1,6 +1,7 @@
 ---
 import BaseHead from './BaseHead.astro';
 import Header from './Header.astro';
+import Hero from './Hero.astro';
 import { localeDefinitions, locales, type Locale } from '../i18n/config';
 import { getPortfolioPath, useTranslations } from '../i18n/utils';
 
@@ -29,6 +30,22 @@ const alternates = locales.map((alternateLocale) => ({
 	</head>
 	<body>
 		<Header />
-		<main></main>
+		<main>
+			<Hero {locale} />
+		</main>
 	</body>
 </html>
+
+<style>
+	main {
+		width: var(--w-site);
+		max-width: 100%;
+		padding: 0 var(--pad-x);
+	}
+
+	@media (max-width: 600px) {
+		main {
+			padding-inline: var(--s-16);
+		}
+	}
+</style>

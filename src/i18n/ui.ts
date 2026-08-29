@@ -1,5 +1,10 @@
 import type { Locale } from './config';
 
+interface TextSegment {
+	text: string;
+	highlight?: boolean;
+}
+
 interface Translations {
 	meta: {
 		title: string;
@@ -23,6 +28,13 @@ interface Translations {
 		title: string;
 		description: string;
 		lastUpdated: string;
+	};
+	hero: {
+		name: string;
+		introduction: TextSegment[];
+		deskAlt: string;
+		email: string;
+		linkedin: string;
 	};
 	footer: {
 		copyright: string;
@@ -58,6 +70,25 @@ export const ui: Record<Locale, Translations> = {
 			description: 'Artículos sobre backend, arquitectura de software, Go y TypeScript.',
 			lastUpdated: 'Actualizado el',
 		},
+		hero: {
+			name: 'David Baque',
+			introduction: [
+				{ text: 'Tres años desarrollando software — desde freelance con aplicaciones que siguen en ' },
+				{ text: 'producción', highlight: true },
+				{
+					text: ', hasta un año en empresa trabajando en equipo en entornos profesionales. Me especializo en ',
+				},
+				{ text: 'arquitecturas limpias', highlight: true },
+				{ text: ' y microservicios con ' },
+				{ text: 'Go', highlight: true },
+				{ text: ' y ' },
+				{ text: 'TypeScript', highlight: true },
+				{ text: ', protegiendo la lógica de negocio de los detalles de infraestructura.' },
+			],
+			deskAlt: 'Mi escritorio de trabajo con dos monitores y teclado mecánico',
+			email: 'correo',
+			linkedin: 'linkedin',
+		},
 		footer: {
 			copyright: 'David Baque. Todos los derechos reservados.',
 			mastodon: 'Seguir en Mastodon',
@@ -90,6 +121,23 @@ export const ui: Record<Locale, Translations> = {
 			description: 'Articles about backend engineering, software architecture, Go and TypeScript.',
 			lastUpdated: 'Last updated on',
 		},
+		hero: {
+			name: 'David Baque',
+			introduction: [
+				{ text: 'Three years building software — from freelance applications that remain in ' },
+				{ text: 'production', highlight: true },
+				{ text: ' to a year working within a professional engineering team. I specialise in ' },
+				{ text: 'clean architecture', highlight: true },
+				{ text: ' and microservices with ' },
+				{ text: 'Go', highlight: true },
+				{ text: ' and ' },
+				{ text: 'TypeScript', highlight: true },
+				{ text: ', keeping business logic protected from infrastructure details.' },
+			],
+			deskAlt: 'My work desk with two monitors and a mechanical keyboard',
+			email: 'email',
+			linkedin: 'linkedin',
+		},
 		footer: {
 			copyright: 'David Baque. All rights reserved.',
 			mastodon: 'Follow on Mastodon',
@@ -121,6 +169,23 @@ export const ui: Record<Locale, Translations> = {
 			title: 'Blog | David Baque',
 			description: 'Articles sobre backend, arquitectura de software, Go i TypeScript.',
 			lastUpdated: 'Actualitzat el',
+		},
+		hero: {
+			name: 'David Baque',
+			introduction: [
+				{ text: 'Tres anys desenvolupant programari — des de projectes freelance amb aplicacions que continuen en ' },
+				{ text: 'producció', highlight: true },
+				{ text: ', fins a un any en empresa treballant en equip en entorns professionals. M’especialitzo en ' },
+				{ text: 'arquitectures netes', highlight: true },
+				{ text: ' i microserveis amb ' },
+				{ text: 'Go', highlight: true },
+				{ text: ' i ' },
+				{ text: 'TypeScript', highlight: true },
+				{ text: ', protegint la lògica de negoci dels detalls d’infraestructura.' },
+			],
+			deskAlt: 'El meu escriptori de treball amb dos monitors i un teclat mecànic',
+			email: 'correu',
+			linkedin: 'linkedin',
 		},
 		footer: {
 			copyright: 'David Baque. Tots els drets reservats.',

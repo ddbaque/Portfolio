@@ -1,0 +1,156 @@
+---
+import { Image } from 'astro:assets';
+import deskImage from '../assets/desk.png';
+import type { Locale } from '../i18n/config';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+	locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<section class="hero" aria-labelledby="hero-title">
+	<div class="hero-content">
+		<h1 id="hero-title">
+			{t.hero.name}<span class="cursor" aria-hidden="true"></span>
+		</h1>
+
+		<p class="introduction">
+			{
+				t.hero.introduction.map((segment) =>
+					segment.highlight ? <strong>{segment.text}</strong> : segment.text,
+				)
+			}
+		</p>
+
+		<div class="actions">
+			<a class="primary-action" href="mailto:baquedavid0@gmail.com">{t.hero.email}</a>
+			<a href="https://www.linkedin.com/in/ddbaque/" target="_blank" rel="me noopener noreferrer">
+				{t.hero.linkedin}
+			</a>
+		</div>
+	</div>
+
+	<figure>
+		<Image
+			src={deskImage}
+			alt={t.hero.deskAlt}
+			widths={[300, 480]}
+			sizes="(max-width: 600px) calc(100vw - 32px), (max-width: 900px) 480px, 300px"
+			loading="eager"
+			fetchpriority="high"
+		/>
+	</figure>
+</section>
+
+<style>
+	.hero {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) 300px;
+		align-items: start;
+		gap: var(--s-48);
+		padding: var(--s-72) 0 var(--s-56);
+		border-bottom: 1px solid var(--line);
+	}
+
+	.hero-content {
+		min-width: 0;
+	}
+
+	h1 {
+		max-width: 20ch;
+		margin: 0 0 var(--s-26);
+		font-size: clamp(36px, 5vw, var(--text-display));
+		font-weight: var(--weight-semibold);
+		letter-spacing: var(--tracking-display);
+		line-height: var(--leading-display);
+	}
+
+	.introduction {
+		max-width: var(--measure-lede);
+		margin: 0 0 var(--s-32);
+		color: var(--fg-muted);
+		font-size: var(--text-lede);
+		line-height: var(--leading-lede);
+		text-wrap: pretty;
+	}
+
+	.introduction strong {
+		color: var(--accent);
+		font-weight: var(--weight-semibold);
+	}
+
+	.actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--s-12);
+		font-family: var(--font-mono);
+		font-size: var(--text-meta);
+		font-weight: var(--weight-medium);
+		letter-spacing: 0.08em;
+		line-height: var(--leading-ui);
+	}
+
+	.actions a {
+		display: inline-flex;
+		align-items: center;
+		min-height: var(--touch-target);
+		padding: 0 var(--s-16);
+		border: 1px solid var(--line-strong);
+		color: var(--fg-soft);
+	}
+
+	.actions a:hover,
+	.actions a:focus-visible {
+		border-color: var(--accent);
+		color: var(--accent);
+	}
+
+	.actions .primary-action {
+		border-color: var(--accent);
+		color: var(--accent);
+	}
+
+	.actions .primary-action:hover,
+	.actions .primary-action:focus-visible {
+		background: var(--accent);
+		color: var(--bg);
+	}
+
+	figure {
+		margin: 0;
+		border: 1px solid var(--line);
+		background: var(--bg-elev);
+	}
+
+	figure :global(img) {
+		display: block;
+		width: 100%;
+		opacity: 0.9;
+	}
+
+	@media (max-width: 900px) {
+		.hero {
+			grid-template-columns: minmax(0, 1fr);
+		}
+
+		figure {
+			width: min(100%, 480px);
+		}
+	}
+
+	@media (max-width: 600px) {
+		.hero {
+			gap: var(--s-38);
+			padding: var(--s-48) 0;
+		}
+
+		.introduction {
+			font-size: var(--text-dek);
+			line-height: var(--leading-dek);
+		}
+	}
+</style>
